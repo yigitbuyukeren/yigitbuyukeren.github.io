@@ -67,7 +67,8 @@ footer a{color:var(--muted)}
 .appshots figure{margin:0}
 .appshots img{border-radius:20px;border:1px solid var(--line);width:100%}
 .appshots figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:6px}
-@media (max-width:760px){
+.strip.wide img{width:420px;height:auto;border:1px solid #1F2A24;border-radius:14px;margin-bottom:28px}
+@media (max-width:760px){.strip.wide img{width:300px}
   .hero{grid-template-columns:1fr;padding-top:40px}.hero .avatar{order:-1;width:180px}
   .project{grid-template-columns:1fr}.contact{padding:28px 20px}
   nav{gap:0}nav a{padding:4px 8px;font-size:14px}.brand{font-size:18px}
