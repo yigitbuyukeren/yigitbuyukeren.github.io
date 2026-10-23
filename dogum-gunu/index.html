@@ -248,6 +248,9 @@ button:focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
 .cake.many .candles { gap: 6px; }
 .cake.many .candle { width: 9px; height: 48px; }
 .cake.many .flame { width: 12px; height: 21px; margin-left: -6px; }
+.cake.lots .candles { gap: 4px; }
+.cake.lots .candle { width: 7px; height: 44px; }
+.cake.lots .flame { width: 10px; height: 18px; margin-left: -5px; }
 .cake.many .t3 { width: 216px; }
 .cake.many .t2 { width: min(262px, 80vw); }
 .cake.many .t1 { width: min(310px, 88vw); }
@@ -539,9 +542,9 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
   <!-- 0 -->
   <section class="scene on" id="s-gate">
     <div class="lock" id="lock"></div>
-    <p class="eyebrow">Bu sayfa sadece bir kişi için</p>
-    <h1>Önce kim olduğunu kanıtla</h1>
-    <p class="lead">Doğum günün hangi gün?</p>
+    <p class="eyebrow" id="gateEyebrow">Bu sayfa sadece bir kişi için</p>
+    <h1 id="gateTitle">Önce kim olduğunu kanıtla</h1>
+    <p class="lead" id="gateQuestion">Doğum günün hangi gün?</p>
     <form class="gate-form" id="gateForm" novalidate>
       <div class="gate" id="gate">
         <input id="gDay" inputmode="numeric" maxlength="2" placeholder="GG" autocomplete="off" aria-label="Gün">
@@ -555,7 +558,7 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
 
   <!-- 1 -->
   <section class="scene" id="s-gift">
-    <p class="eyebrow">Bugün senin günün</p>
+    <p class="eyebrow" id="giftEyebrow">Bugün senin günün</p>
     <h1 id="giftTitle">Sana küçük bir hediyem var</h1>
     <div class="gift-wrap" id="giftWrap">
       <div class="rays"></div>
@@ -566,7 +569,7 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
     </div>
     <p class="hint" id="giftHint">Kutuya dokun</p>
     <div class="gift-reveal" id="giftReveal" hidden>
-      <h2>İyi ki doğdun, <span class="nm"></span>!</h2>
+      <h2 id="giftWish">İyi ki doğdun, <span class="nm"></span>!</h2>
       <div class="lifetime">
         <div class="big-num" id="lifeSec">0</div>
         <div class="unit">saniyedir bu dünyadasın</div>
@@ -632,7 +635,7 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
 
   <!-- 5 -->
   <section class="scene" id="s-bottle">
-    <p class="eyebrow">Denizden sana bir şey geldi</p>
+    <p class="eyebrow" id="bottleEyebrow">Denizden sana bir şey geldi</p>
     <h2 id="envTitle">Bir şişe kıyıya vuruyor</h2>
     <div class="sea" id="sea">
       <span class="wave w3"></span>
@@ -663,7 +666,7 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
   <!-- 6 -->
   <section class="scene" data-scene="5" id="finale">
     <div class="fin" id="finA">
-      <h1 class="finale-title" id="finaleTitle" aria-label="İyi ki doğdun"></h1>
+      <h1 class="finale-title" id="finaleTitle"></h1>
       <p class="finale-name nm"></p>
       <p class="lead" id="finaleLead"></p>
       <div class="row">
@@ -673,9 +676,9 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
     </div>
     <div class="fin" id="finB" hidden>
       <svg class="bouquet" id="bouquet" viewBox="0 0 240 260" aria-hidden="true"></svg>
-      <h2>Yeni yaşın, yeni bir sabah gibi olsun</h2>
-      <p class="lead">Bu çiçekler hiç solmaz. Ne zaman istersen gelip bakabilirsin.</p>
-      <p class="finale-name">İyi ki doğdun, <span class="nm"></span>.</p>
+      <h2 id="dawnTitle">Yeni yaşın, yeni bir sabah gibi olsun</h2>
+      <p class="lead" id="dawnLead">Bu çiçekler hiç solmaz. Ne zaman istersen gelip bakabilirsin.</p>
+      <p class="finale-name" id="dawnName">İyi ki doğdun, <span class="nm"></span>.</p>
       <button class="btn ghost" id="restart">Baştan izle</button>
     </div>
   </section>
@@ -683,51 +686,82 @@ h1, h2, .big-num, .gate input, .gate .sep, .prize strong, .ow-front strong {
 
 <script>
 /* ====== BURAYI KİŞİSELLEŞTİR ====== */
+/* Kolay yol: olustur/ sayfasındaki formu doldur, hazır dosyayı indir. Elle düzenlersen yalnızca
+   CONFIG:BASLA ile CONFIG:BITIR arasını değiştir. Metinlerde {isim} ve {yas} kendiliğinden dolar. */
+/* CONFIG:BASLA */
 const CONFIG = {
-  name: "Ada",                                // Adı (yıldız harfleri için Türkçe harfler desteklenir)
-  birth: { day: 14, month: 2, year: 2012 },   // Doğum tarihi: giriş sorusu, sayaç ve ay evresi buna göre hesaplanır
+  name: "Defne",                              // Adı (yıldız harfleri için Türkçe harfler desteklenir)
+  birth: { day: 14, month: 5, year: 2000 },   // Doğum tarihi: giriş sorusu, sayaç ve ay evresi buna göre hesaplanır
   age: null,                                  // Boş bırakırsan bu yılki yaşı kendisi hesaplar
-  star: { name: "Wolf 1061", ly: 14 },        // Yaşına yakın uzaklıkta (ışık yılı) bir yıldız seç
-  openWhen: [
-    { label: "Canın sıkıldığında", color: "--sky",
-      text: "En kötü gün bile sadece 24 saat sürüyor. Yarın yeni bir sayfa. Şimdilik derin bir nefes al, sonra bu sayfaya dönüp biraz konfeti patlat." },
-    { label: "Gülmek istediğinde", color: "--butter",
-      text: "Düşün: Biri senin için mumlar, kabuklar, şişeler ve koca bir gökyüzü kodladı. Bu kadar uğraşan birinin hâli bile yeterince komik." },
-    { label: "Kendine inanmadığında", color: "--mint",
-      text: "Sen sandığından çok daha güçlü, akıllı ve değerlisin. Bunu sana söyleyen ilk kişi ben değilim, son kişi de ben olmayacağım." }
-  ],
-  candles: null,                              // Boş bırakırsan yaş kadar mum olur
+  candles: null,                              // Boş bırakırsan yaş kadar mum olur (en çok 20)
+  star: null,                                 // Boş bırakırsan yaşına en yakın uzaklıktaki ünlü yıldız seçilir. Elle: { name: "Vega", ly: 25 }
   reasons: [
-    "Gülüşün bulunduğu her yeri aydınlatıyor.",
+    "Gülüşün bulunduğun her yeri aydınlatıyor.",
     "Herkesi güldürmenin bir yolunu buluyorsun.",
-    "Kalbin çok güzel, insanlara hep iyi davranıyorsun.",
+    "Kalbin güzel, insanlara hep iyi davranıyorsun.",
     "Sandığından çok daha güçlü birisin.",
     "Hayallerini anlatırken gözlerin parlıyor.",
-    "Seninle konuşmak günümün en güzel kısmı.",
-    "Seni tanımış olmak hayatımdaki en güzel şanslardan biri.",
+    "Yanında olmak insana iyi geliyor.",
+    "Seni tanımak güzel bir şans.",
     "Sen sensin. Bu yeter de artar bile."
   ],
   coupon: {
     title: "Bir Kahve Kuponu",
     text: "Ne zaman istersen bir kahve benden, sohbeti de dahil. Kullanmak için sadece bu kuponu göstermen yeterli."
   },
-  letter: null, // null bırakırsan aşağıdaki varsayılan mektup kullanılır
-  signature: "Sevgiyle"
-};
-CONFIG.age = CONFIG.age || (new Date().getFullYear() - CONFIG.birth.year);
-CONFIG.candles = CONFIG.candles || CONFIG.age;
-CONFIG.letter = CONFIG.letter || `${CONFIG.name},
+  letter: `{isim},
 
 Bu şişe sana denizden geldi. İçinde sadece sana yazılmış birkaç satır var.
 
-Bugün ${CONFIG.age} yaşına giriyorsun ve bunu sessizce geçirmek istemedim. Bu küçük sayfayı seni biraz gülümsetebilmek için hazırladım.
+Bugün {yas} yaşına giriyorsun ve bunu sessizce geçirmek istemedim. Bu küçük sayfayı seni biraz gülümsetebilmek için hazırladım.
 
-Seni tanıdığım için çok mutluyum. Hayatımda olman benim için çok değerli.
+Seni tanıdığım için mutluyum. Hayatımda olman çok güzel.
 
 Yeni yaşın sana huzur, kahkaha ve hak ettiğin bütün güzellikleri getirsin.
 
-İyi ki doğdun.`;
+İyi ki doğdun.`,
+  signature: "Sevgiyle",
+  openWhen: [
+    { label: "Canın sıkıldığında", color: "--sky",
+      text: "En kötü gün bile sadece 24 saat sürüyor. Yarın yeni bir sayfa. Şimdilik derin bir nefes al, sonra bu sayfaya dönüp biraz konfeti patlat." },
+    { label: "Gülmek istediğinde", color: "--butter",
+      text: "Düşün: Biri senin için mumlar, kabuklar, şişeler ve koca bir gökyüzü hazırladı. Bu kadar uğraşan birinin hâli bile yeterince komik." },
+    { label: "Kendine inanmadığında", color: "--mint",
+      text: "Sen sandığından çok daha güçlü, akıllı ve değerlisin. Bunu sana söyleyen ilk kişi ben değilim, son kişi de ben olmayacağım." }
+  ],
+  texts: {                                    // Sayfadaki başlıklar ve ara cümleler
+    wish: "İyi ki doğdun",                    // Hediye kutusunda, finalde (harf harf) ve gün doğumunda kullanılır
+    gateEyebrow: "Bu sayfa sadece bir kişi için",
+    gateTitle: "Önce kim olduğunu kanıtla",
+    gateQuestion: "Doğum günün hangi gün?",
+    gateReveal: "Cevap {tarih}. Yine de içeri alıyorum, bugün senin günün.",
+    giftEyebrow: "Bugün senin günün",
+    giftTitle: "Sana küçük bir hediyem var",
+    bottleEyebrow: "Denizden sana bir şey geldi",
+    shellsDone: "Hepsini buldun. Aslında liste çok daha uzun",
+    finaleLead: "{yas}. yaşın kutlu olsun. Gökyüzüne dokun, havai fişek patlasın.",
+    gazeTitle: "Gökyüzü bile bugün adını yazıyor",
+    gazeSub: "Hangi yöne gidersen git, yolun hep aydınlık olsun.",
+    dawnTitle: "Yeni yaşın, yeni bir sabah gibi olsun",
+    dawnLead: "Bu çiçekler hiç solmaz. Ne zaman istersen gelip bakabilirsin."
+  }
+};
+/* CONFIG:BITIR */
 /* ================================== */
+
+CONFIG.age = CONFIG.age || (new Date().getFullYear() - CONFIG.birth.year);
+CONFIG.candles = CONFIG.candles || Math.min(CONFIG.age, 20);
+if (!CONFIG.star) {
+  // Işığın yaşın kadar yıl önce yola çıktığı, bilinen parlak yıldızlardan yaşına en yakın olanı
+  const STARS = [["Alpha Centauri", 4.4], ["Sirius", 8.6], ["Procyon", 11.5], ["Altair", 16.7], ["Vega", 25], ["Fomalhaut", 25],
+                 ["Pollux", 34], ["Arcturus", 37], ["Capella", 43], ["Castor", 51], ["Aldebaran", 65], ["Regulus", 79], ["Algol", 90]];
+  const [sn, sly] = STARS.reduce((a, c) => Math.abs(c[1] - CONFIG.age) < Math.abs(a[1] - CONFIG.age) ? c : a);
+  CONFIG.star = { name: sn, ly: sly };
+}
+const fill = str => String(str).replaceAll("{isim}", CONFIG.name).replaceAll("{yas}", CONFIG.age);
+const LY = Number(CONFIG.star.ly).toLocaleString("tr-TR");
+const TX = Object.fromEntries(Object.entries(CONFIG.texts).map(([k, v]) => [k, fill(v)]));
+CONFIG.letter = fill(CONFIG.letter);
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -739,6 +773,14 @@ const rand = (a, b) => a + Math.random() * (b - a);
 const pick = a => a[Math.floor(Math.random() * a.length)];
 
 $$(".nm").forEach(e => e.textContent = CONFIG.name);
+// Başlıklar ve ara cümleler CONFIG.texts'ten gelir
+const withName = (el, before, after) => { el.textContent = before; const n = document.createElement("span"); n.className = "nm"; n.textContent = CONFIG.name; el.append(n, after); };
+[["gateEyebrow"], ["gateTitle"], ["gateQuestion"], ["giftEyebrow"], ["giftTitle"], ["bottleEyebrow"], ["dawnTitle"], ["dawnLead"]]
+  .forEach(([k]) => { $("#" + k).textContent = TX[k]; });
+withName($("#giftWish"), TX.wish + ", ", "!");
+withName($("#dawnName"), TX.wish + ", ", ".");
+$("#finaleTitle").setAttribute("aria-label", TX.wish);
+document.title = TX.wish;
 
 /* ---------- Kanvaslar ---------- */
 const bg = $("#bg"), bctx = bg.getContext("2d");
@@ -1018,7 +1060,7 @@ $("#gateForm").addEventListener("submit", e => {
   gateTries++;
   const g = $("#gate"); g.classList.remove("shake"); void g.offsetWidth; g.classList.add("shake");
   if (gateTries > gateMsgs.length) {
-    $("#gateHint").textContent = `Cevap ${CONFIG.birth.day} ${MONTHS[CONFIG.birth.month - 1]}. Yine de içeri alıyorum, bugün senin günün.`;
+    $("#gateHint").textContent = TX.gateReveal.replace("{tarih}", `${CONFIG.birth.day} ${MONTHS[CONFIG.birth.month - 1]}`);
     gDay.value = String(CONFIG.birth.day).padStart(2, "0"); gMonth.value = String(CONFIG.birth.month).padStart(2, "0");
     setTimeout(unlockGate, 1400);
   } else {
@@ -1083,7 +1125,7 @@ function resetGift() {
   giftClicks = 0;
   gift.className = "gift"; $("#giftWrap").classList.remove("open");
   $("#giftHint").textContent = "Kutuya dokun";
-  $("#giftTitle").textContent = "Sana küçük bir hediyem var";
+  $("#giftTitle").textContent = TX.giftTitle;
   $("#giftReveal").hidden = true;
 }
 
@@ -1093,6 +1135,7 @@ function buildCandles() {
   const box = $("#candles"); box.innerHTML = "";
   lit = CONFIG.candles;
   $(".cake").classList.toggle("many", CONFIG.candles > 8);
+  $(".cake").classList.toggle("lots", CONFIG.candles > 14);
   for (let i = 0; i < CONFIG.candles; i++) {
     const c = document.createElement("button");
     c.className = "candle"; c.setAttribute("aria-label", `Mum ${i + 1}, üfle`);
@@ -1149,7 +1192,8 @@ const SHELL_COLORS = ["--pink", "--cream", "--coral", "--lilac", "--butter", "--
 function buildShells() {
   const beach = $("#beach"); beach.innerHTML = ""; $("#notes").innerHTML = "";
   opened = 0; $("#shellNext").hidden = true;
-  CONFIG.reasons.forEach((txt, i) => {
+  CONFIG.reasons.forEach((raw, i) => {
+    const txt = fill(raw);
     const w = document.createElement("div");
     w.className = "shell-wrap";
     w.innerHTML = '<span class="pearl"></span><button class="shell"></button>';
@@ -1170,7 +1214,7 @@ function buildShells() {
       if (++opened === CONFIG.reasons.length) {
         setTimeout(() => {
           show($("#shellNext")); sfx.chime();
-          toast("Hepsini buldun. Aslında liste çok daha uzun");
+          toast(TX.shellsDone);
           const [x, y] = center($("#beach")); confetti(x, y, 120, 10);
         }, 500);
       }
@@ -1234,8 +1278,8 @@ sc.addEventListener("pointerdown", e => {
 });
 sc.addEventListener("pointermove", e => { if (scratching && !scratchDone) scratchAt(e); });
 ["pointerup", "pointercancel"].forEach(ev => sc.addEventListener(ev, () => { scratching = false; lastPt = null; if (!scratchDone) checkScratch(); }));
-$("#couponTitle").textContent = CONFIG.coupon.title;
-$("#couponText").textContent = CONFIG.coupon.text;
+$("#couponTitle").textContent = fill(CONFIG.coupon.title);
+$("#couponText").textContent = fill(CONFIG.coupon.text);
 
 /* 5 — Mektup */
 const bottle = $("#bottle");
@@ -1262,7 +1306,7 @@ bottle.addEventListener("click", () => {
 });
 function typeLetter() {
   const el = $("#letterText"), txt = CONFIG.letter;
-  $("#letterSign").textContent = "— " + CONFIG.signature;
+  $("#letterSign").textContent = "— " + fill(CONFIG.signature);
   let i = 0;
   const finish = () => {
     clearTimeout(typeTimer); el.textContent = txt;
@@ -1292,8 +1336,8 @@ function resetOpenWhen() {
     b.className = "ow"; b.setAttribute("aria-label", `${o.label} aç`);
     b.innerHTML = '<span class="ow-inner"><span class="ow-face ow-front"><small>Aç:</small><strong></strong></span><span class="ow-face ow-back"></span></span>';
     b.querySelector(".ow-front").style.setProperty("--c", tok(o.color));
-    b.querySelector("strong").textContent = o.label;
-    b.querySelector(".ow-back").textContent = o.text;
+    b.querySelector("strong").textContent = fill(o.label);
+    b.querySelector(".ow-back").textContent = fill(o.text);
     b.addEventListener("click", () => {
       if (b.classList.contains("open")) return;
       b.classList.add("open"); sfx.whoosh();
@@ -1311,7 +1355,7 @@ function buildFinale() {
   $("#finA").hidden = false; $("#finB").hidden = true;
   const t = $("#finaleTitle"); t.innerHTML = "";
   let k = 0;
-  "İyi ki doğdun".split(" ").forEach(w => {
+  TX.wish.split(" ").forEach(w => {
     const word = document.createElement("span"); word.className = "word"; word.setAttribute("aria-hidden", "true");
     [...w].forEach(ch => {
       const s = document.createElement("span");
@@ -1363,7 +1407,7 @@ function toDawn() {
   sfx.chime();
 }
 $("#hearts").addEventListener("click", () => { heartRain(110); sfx.chime(); });
-$("#finaleLead").textContent = `${CONFIG.age}. yaşın kutlu olsun. Gökyüzüne dokun, havai fişek patlasın.`;
+$("#finaleLead").textContent = TX.finaleLead;
 
 /* Yıldızlardan isim */
 const LETTERS = {
@@ -1385,6 +1429,7 @@ const LETTERS = {
   M: [[[0, 1], [0, 0], [.31, .5], [.62, 0], [.62, 1]]],
   N: [[[0, 1], [0, 0], [.62, 1], [.62, 0]]],
   O: [[[.15, 0], [.47, 0], [.62, .2], [.62, .8], [.47, 1], [.15, 1], [0, .8], [0, .2], [.15, 0]]],
+  Q: [[[.15, 0], [.47, 0], [.62, .2], [.62, .8], [.47, 1], [.15, 1], [0, .8], [0, .2], [.15, 0]], [[.4, .72], [.68, 1.1]]],
   Ö: [[[.15, 0], [.47, 0], [.62, .2], [.62, .8], [.47, 1], [.15, 1], [0, .8], [0, .2], [.15, 0]], [[.18, -.18]], [[.44, -.18]]],
   P: [[[0, 1], [0, 0], [.45, 0], [.6, .14], [.6, .4], [.45, .52], [0, .52]]],
   R: [[[0, 1], [0, 0], [.45, 0], [.6, .14], [.6, .4], [.45, .52], [0, .52]], [[.3, .52], [.62, 1]]],
@@ -1394,6 +1439,8 @@ const LETTERS = {
   U: [[[0, 0], [0, .8], [.15, 1], [.47, 1], [.62, .8], [.62, 0]]],
   Ü: [[[0, 0], [0, .8], [.15, 1], [.47, 1], [.62, .8], [.62, 0]], [[.18, -.18]], [[.44, -.18]]],
   V: [[[0, 0], [.31, 1], [.62, 0]]],
+  W: [[[0, 0], [.15, 1], [.31, .4], [.47, 1], [.62, 0]]],
+  X: [[[0, 0], [.62, 1]], [[.62, 0], [0, 1]]],
   Y: [[[0, 0], [.31, .5], [.62, 0]], [[.31, .5], [.31, 1]]],
   Z: [[[0, 0], [.62, 0], [0, 1], [.62, 1]]]
 };
@@ -1441,7 +1488,7 @@ function drawConstellation(t) {
     bctx.beginPath(); bctx.arc(sp.x, sp.y, 9, 0, 6.28); bctx.fill();
     bctx.globalAlpha = c.alpha * k; bctx.fillStyle = tok("--muted");
     bctx.font = `600 12px ${tok("--body")}`; bctx.textAlign = sp.x > W / 2 ? "right" : "left";
-    bctx.fillText(`${CONFIG.star.name} · ${CONFIG.star.ly} ışık yılı`, sp.x + (sp.x > W / 2 ? -26 : 26), sp.y + 4);
+    bctx.fillText(`${CONFIG.star.name} · ${LY} ışık yılı`, sp.x + (sp.x > W / 2 ? -26 : 26), sp.y + 4);
   }
   for (const [x, y] of P) {
     bctx.globalAlpha = .25 * c.alpha; bctx.fillStyle = tok("--butter");
@@ -1456,8 +1503,8 @@ function gaze() {
   if (document.body.classList.contains("gazing")) return;
   clearInterval(showTimer);
   gazeStart = performance.now();
-  $("#gazeTitle").textContent = "Gökyüzü bile bugün adını yazıyor";
-  $("#gazeSub").textContent = "Hangi yöne gidersen git, yolun hep aydınlık olsun.";
+  $("#gazeTitle").textContent = TX.gazeTitle;
+  $("#gazeSub").textContent = TX.gazeSub;
   document.body.classList.add("gazing");
   cons = buildConstellation();
   if (reduced) { cons.start -= 10000; drawStars(performance.now()); }
@@ -1472,8 +1519,8 @@ function starPhase() {
   if (cons) cons.special = { x: W * .8, y: Math.max(70, H * .12), t0: performance.now() };
   if (reduced) drawStars(performance.now());
   starTimer = setTimeout(() => {
-    $("#gazeTitle").textContent = `${CONFIG.star.ly} ışık yılı uzaktan bir selam`;
-    $("#gazeSub").textContent = `${CONFIG.star.name} adında bir yıldız bize yaklaşık ${CONFIG.star.ly} ışık yılı uzakta. Sen doğduğun gün ondan yola çıkan ışık, şimdi Dünya'ya ulaşıyor.`;
+    $("#gazeTitle").textContent = `${LY} ışık yılı uzaktan bir selam`;
+    $("#gazeSub").textContent = `${CONFIG.star.name} adında bir yıldız bize yaklaşık ${LY} ışık yılı uzakta. Sen doğduğun gün ondan yola çıkan ışık, şimdi Dünya'ya ulaşıyor.`;
     msg.style.opacity = "1";
     sfx.chime();
   }, 900);
