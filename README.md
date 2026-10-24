@@ -55,7 +55,7 @@ python3 -m http.server 8000      # http://localhost:8000
 bash deploy.sh                   # rsync ile VPS'e gönderir; Caddy /var/www altından sunar
 ```
 
-GitHub Pages kullanılmıyor; site kendi sunucumda Caddy ile, otomatik HTTPS ile yayında. `deploy.sh` `.git`, `.github`, `.local` ve README gibi yayına girmeyecek dosyaları atlar.
+GitHub Pages kullanılmıyor; site kendi sunucumda Caddy ile, otomatik HTTPS ile yayında. `deploy.sh` `.git`, `.github` ve README gibi yayına girmeyecek dosyaları atlar.
 
 <details>
 <summary><h3>🇬🇧 English</h3></summary>
