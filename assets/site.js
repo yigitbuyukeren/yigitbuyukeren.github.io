@@ -36,7 +36,7 @@
   var y = d.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* GitHub: son gönderilen depo ve cleanyourtv PR durumu. Hata olursa sayfadaki sabit metin kalır. */
+  /* GitHub: son gönderilen depo. Hata olursa sayfadaki sabit metin kalır. */
   var ago = function (iso) {
     var days = Math.floor((Date.now() - new Date(iso)) / 864e5);
     if (EN) return days < 1 ? 'today' : days === 1 ? 'yesterday' : days < 30 ? days + ' days ago' : new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
@@ -52,12 +52,5 @@
     var a = d.createElement('a'); a.href = repo.html_url; a.textContent = repo.name;
     var s = d.createElement('small'); s.textContent = ago(repo.pushed_at);
     last.replaceChildren(a, s);
-  }).catch(function () {});
-
-  var pr = d.getElementById('gh-pr');
-  if (pr) get('https://api.github.com/repos/Gathin23/cleanyourtv/pulls/874').then(function (p) {
-    var t = p.merged_at ? (EN ? 'merged' : 'birleştirildi') : p.state === 'open' ? (EN ? 'in review' : 'incelemede') : (EN ? 'closed' : 'kapandı');
-    pr.textContent = t;
-    d.querySelectorAll('[data-pr-state]').forEach(function (n) { n.textContent = t; });
   }).catch(function () {});
 })();
