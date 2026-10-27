@@ -28,9 +28,10 @@ Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, t
 
 | Sayfa | |
 |---|---|
-| [`/`](https://yigitbuyukeren.com) · [`/en/`](https://yigitbuyukeren.com/en/) | Ana sayfa: seçili işler, yaklaşım, araçlar, hakkımda, iletişim |
+| [`/`](https://yigitbuyukeren.com) · [`/en/`](https://yigitbuyukeren.com/en/) | Ana sayfa: hero, öne çıkan projeler, teknik çalışmalar, diğer projeler, yaklaşım, teknolojiler, hakkımda, sertifikalar ve açık kaynak, iletişim |
+| [`/cv/`](https://yigitbuyukeren.com/cv/) · [`/en/cv/`](https://yigitbuyukeren.com/en/cv/) | Özgeçmiş sayfası ve tek sayfalık PDF'ler (`Yigit-Eren-Buyukeren-CV-TR.pdf`, `-EN.pdf`) |
 | [`/ridedeck/`](https://yigitbuyukeren.com/ridedeck/) · [`/en/ridedeck/`](https://yigitbuyukeren.com/en/ridedeck/) | RideDeck proje sayfası |
-| [`/aile-cuzdani/`](https://yigitbuyukeren.com/aile-cuzdani/) | Aile Cüzdanı proje sayfası, [gizlilik](https://yigitbuyukeren.com/aile-cuzdani/gizlilik/), [şartlar](https://yigitbuyukeren.com/aile-cuzdani/sartlar/) ve [hesap silme](https://yigitbuyukeren.com/aile-cuzdani/hesap-silme/) |
+| [`/aile-cuzdani/`](https://yigitbuyukeren.com/aile-cuzdani/) · [`/en/aile-cuzdani/`](https://yigitbuyukeren.com/en/aile-cuzdani/) | Aile Cüzdanı proje sayfası, [gizlilik](https://yigitbuyukeren.com/aile-cuzdani/gizlilik/), [şartlar](https://yigitbuyukeren.com/aile-cuzdani/sartlar/) ve [hesap silme](https://yigitbuyukeren.com/aile-cuzdani/hesap-silme/) |
 | [`/dogum-gunu/`](https://yigitbuyukeren.com/dogum-gunu/) | [Doğum Günü Sürprizi](https://github.com/yigitbuyukeren/dogum-gunu-surprizi)'nin canlı demosu |
 
 ### 🧱 Yapı
@@ -46,7 +47,11 @@ assets/fonts/                  Bricolage Grotesque, Geist, Geist Mono (latin + T
 assets/img/                    ekran görüntüleri, paylaşım görselleri, ikonlar
 404.html, sitemap.xml          hata sayfası ve hreflang'li site haritası
 deploy.sh                      sunucuya gönderme
+cv/, en/cv/                    CV sayfaları ve PDF'ler (tools/cv/build-cv.py ile üretilir)
+tools/                         cv üretici (HTML + PDF) ve site kontrolü; yayına girmez
 ```
+
+CV içeriği tek yerde, `tools/cv/build-cv.py` içinde durur; TR/EN sayfalar ve PDF'ler oradan üretilir (`python3 tools/cv/build-cv.py`, PDF için macOS gerekir). Bağlantı, meta ve görsel kontrolü: `python3 tools/check-site.py`.
 
 ### 🚀 Yerelde çalıştırma ve yayınlama
 
