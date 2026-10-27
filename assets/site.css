@@ -186,7 +186,7 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 .work:hover .work-thumb img{transform:scale(1.025)}
 .work-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
 .work .meta-line{display:flex;flex-wrap:wrap;gap:6px 12px;font:500 12px/1 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
-.work h4{font-size:28px;letter-spacing:-.03em}
+.work h3,.work h4{font-size:28px;letter-spacing:-.03em}
 .work p{margin:0;color:var(--ink-2);font-size:16.5px}
 .work .fact{font:500 14px/1.4 var(--f-mono);color:var(--ink);background:var(--bg-2);border-radius:10px;padding:10px 12px}
 .work .fact b{color:var(--accent-ink);font-weight:600}
@@ -348,7 +348,7 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 
 /* ---------- Ana sayfa: teknik çalışmalar, arşiv, uyarı notu ---------- */
 .works--3{grid-template-columns:repeat(3,1fr)}
-.works--3 .work h4{font-size:24px}
+.works--3 .work h3{font-size:24px}
 @media (max-width:1040px){.works--3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.works--3{grid-template-columns:1fr}}
 .caveat{margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:var(--bg-2);border-radius:0 10px 10px 0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
@@ -364,3 +364,5 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 @media (max-width:980px){.archive{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.archive{grid-template-columns:1fr}}
 .hero h1{font-size:clamp(44px,7vw,92px)}
+
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

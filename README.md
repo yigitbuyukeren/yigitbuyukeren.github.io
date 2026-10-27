@@ -20,9 +20,9 @@
 
 Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, tek bir CSS ve tek bir JavaScript dosyası. Fontlar da sitenin içinde, ziyaretçinin tarayıcısı Google'a ya da başka bir CDN'e istek atmaz.
 
-| ⚡ **Hafif** | 🌗 **Açık ve koyu tema** | 🔴 **Canlı "Şu an" paneli** | 🔒 **Üçüncü taraf yok** |
+| ⚡ **Hafif** | 🌗 **Açık ve koyu tema** | 🔴 **Canlı "Şu an" paneli** | 🔒 **İzleyici yok** |
 |:---:|:---:|:---:|:---:|
-| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | İstanbul saati, son gönderilen repo ve PR durumu GitHub'dan | Fontlar sitede, izleme ve reklam yok |
+| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | İstanbul saati, son gönderilen repo ve PR durumu GitHub'dan | Fontlar sitede, izleme ve reklam yok (yalnızca "Şu an" kutusu GitHub API'sini çağırır) |
 
 ### 🗺️ Sayfalar
 

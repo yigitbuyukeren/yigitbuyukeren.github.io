@@ -182,6 +182,7 @@ WEB_CSS = """
 .cv table{width:100%;border-collapse:collapse}
 .cv td{padding:10px 0;border-top:1px solid var(--rule);vertical-align:top}
 .cv td:last-child{text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:13.5px;color:var(--muted)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .cv .note{color:var(--muted);font-size:14.5px;margin-top:10px}
 @media (max-width:640px){.cv dl{grid-template-columns:1fr}.cv dd{margin-bottom:8px}}
 """
@@ -206,7 +207,7 @@ def web_html(c, base):
         .replace("{{CANON}}", canon).replace("{{TR}}", tr_url).replace("{{EN}}", en_url).replace("{{LOCALE}}", "en_US" if en else "tr_TR") \
         .replace("{{CSS}}", WEB_CSS)
     header = base["header"].replace("{{HOME}}", w["home"]).replace("{{HOMELABEL}}", home_label).replace("{{THEME}}", theme_label) \
-        .replace("{{ALT}}", w["alt"]).replace("{{ALTLANG}}", w["alt_lang"]).replace("{{ALTLABEL}}", w["alt_label"])
+        .replace("{{ALT}}", w["alt"]).replace("{{ALTLANG}}", w["alt_lang"]).replace("{{ALTLABEL}}", w["alt_label"]).replace("{{ALTNAME}}", "English" if c["lang"] == "tr" else "Türkçe")
     return f"""{head}
 <body>
 <a class="skip" href="#main">{w['skip']}</a>
@@ -220,7 +221,7 @@ def web_html(c, base):
 <h2>{E(c['h']['projects'])}</h2>{projs}
 <h2>{E(c['h']['oss'])}</h2><p>{E(c['oss'])}</p>
 <h2>{E(c['h']['skills'])}</h2><dl>{sk}</dl>
-<h2>{E(c['h']['edu'])}</h2><table>{ed}</table><p class="note">{E(c['edu_note'])}</p>
+<h2>{E(c['h']['edu'])}</h2><table><thead><tr><th scope="col" class="vh">{"Education or certificate" if en else "Eğitim veya sertifika"}</th><th scope="col" class="vh">{"Issuer" if en else "Veren"}</th><th scope="col" class="vh">{"Date" if en else "Tarih"}</th></tr></thead>{ed}</table><p class="note">{E(c['edu_note'])}</p>
 </article></main>
 <footer class="site-foot"><div class="wrap"><span>© <span id="y">2026</span> Yiğit Eren Büyükeren</span><nav aria-label="{'Footer links' if en else 'Alt bağlantılar'}"><a href="{w['home']}">{w['back']}</a><a href="https://github.com/yigitbuyukeren">GitHub</a></nav></div></footer>
 <script src="/assets/site.js" defer></script>
@@ -236,9 +237,9 @@ def main():
     src = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
     moon = src[src.index('<button class="icon-btn" id="theme"'):src.index('</button>', src.index('<button class="icon-btn" id="theme"')) + 9]
     header = ('<header class="site-head"><div class="wrap">'
-              '<a class="mark" href="{{HOME}}" aria-label="{{HOMELABEL}}"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-name-long">Eren </span>Büyükeren</span></a>'
+              '<a class="mark" href="{{HOME}}"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-name-long">Eren </span>Büyükeren</span></a>'
               '<div class="head-tools" style="margin-left:auto">' + moon.replace('aria-label="Açık ya da koyu tema"', 'aria-label="{{THEME}}"') +
-              '<a class="icon-btn" href="{{ALT}}" hreflang="{{ALTLANG}}" lang="{{ALTLANG}}">{{ALTLABEL}}</a></div></div></header>')
+              '<a class="icon-btn" href="{{ALT}}" hreflang="{{ALTLANG}}" lang="{{ALTLANG}}" aria-label="{{ALTLABEL}}, {{ALTNAME}}">{{ALTLABEL}}</a></div></div></header>')
     head = ('<!doctype html>\n<html lang="{{LANG}}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n'
             '<title>{{TITLE}}</title>\n<meta name="description" content="{{DESC}}">\n<meta name="author" content="Yiğit Eren Büyükeren">\n'
             '<link rel="canonical" href="{{CANON}}">\n<link rel="alternate" hreflang="tr" href="{{TR}}">\n<link rel="alternate" hreflang="en" href="{{EN}}">\n<link rel="alternate" hreflang="x-default" href="{{TR}}">\n'
