@@ -3,7 +3,7 @@
 import os, re, sys, glob
 from urllib.parse import urlparse, unquote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-pages = [p for p in glob.glob(ROOT + '/**/*.html', recursive=True) if '/tools/' not in p and '/dogum-gunu/' not in p and not p.endswith('/404.html') and '/_gh/' not in p and '/.git/' not in p]
+pages = [p for p in glob.glob(ROOT + '/**/*.html', recursive=True) if '/tools/' not in p and not p.endswith('/404.html') and '/_gh/' not in p and '/.git/' not in p]
 bad = 0
 def exists(path):
     path = unquote(path.split('#')[0].split('?')[0])
