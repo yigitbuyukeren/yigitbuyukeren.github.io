@@ -47,6 +47,7 @@ CV = {
    ("Ağ", "TCP/IP, alt ağlar, temel yönlendirme"),
   ],
   "edu": [
+   ("Açık Öğretim Lisesi", "", "Devam ediyor"),
    ("CCNA: Introduction to Networks (kurs)", "Cisco Networking Academy", "Mart 2026"),
    ("Linux Unhatched", "Cisco Networking Academy", "Şubat 2026"),
    ("Introduction to Cybersecurity", "Cisco Networking Academy", "Şubat 2026"),
@@ -54,7 +55,7 @@ CV = {
    ("Ağ Temelleri", "BTK Akademi", "Aralık 2025"),
    ("Bilgisayar Ağları", "BTK Akademi", "Aralık 2025"),
   ],
-  "edu_note": "Kurs tamamlama sertifikalarıdır; tam CCNA sertifikası değildir.",
+  "edu_note": "Sertifikalar kurs tamamlama belgeleridir; tam CCNA sertifikası değildir.",
   "web": {"download": "PDF indir", "back": "Ana sayfa", "home": "/", "alt": "/en/cv/", "alt_label": "EN", "alt_lang": "en", "skip": "İçeriğe geç", "pdfpath": "/cv/", "other_pdf": "English PDF"},
  },
  "en": {
@@ -93,6 +94,7 @@ CV = {
    ("Networking", "TCP/IP, subnetting, basic routing"),
   ],
   "edu": [
+   ("Open Education High School (Açık Öğretim Lisesi)", "", "In progress"),
    ("CCNA: Introduction to Networks (course)", "Cisco Networking Academy", "March 2026"),
    ("Linux Unhatched", "Cisco Networking Academy", "February 2026"),
    ("Introduction to Cybersecurity", "Cisco Networking Academy", "February 2026"),
@@ -100,7 +102,7 @@ CV = {
    ("Network Basics (Ağ Temelleri)", "BTK Akademi", "December 2025"),
    ("Computer Networks (Bilgisayar Ağları)", "BTK Akademi", "December 2025"),
   ],
-  "edu_note": "Course-completion certificates; not the full CCNA certification.",
+  "edu_note": "Certificates are course-completion records; not the full CCNA certification.",
   "web": {"download": "Download PDF", "back": "Home", "home": "/en/", "alt": "/cv/", "alt_label": "TR", "alt_lang": "tr", "skip": "Skip to content", "pdfpath": "/en/cv/", "other_pdf": "Türkçe PDF"},
  },
 }
@@ -110,12 +112,12 @@ PRINT_CSS = """
 *{box-sizing:border-box}
 html{zoom:.75}
 html,body{margin:0;padding:0;background:#fff}
-body{width:595pt;height:842pt;padding:30pt 36pt 24pt;font:9.3pt/1.38 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#111;overflow:hidden}
+body{width:595pt;height:842pt;padding:30pt 36pt 24pt;font:9.3pt/1.38 Arial,"Helvetica Neue",Helvetica,sans-serif;color:#111;overflow:hidden}
 h1{font-size:21pt;line-height:1.1;margin:0 0 2pt;font-weight:700;letter-spacing:-.3pt}
 .role{font-size:10pt;margin:0 0 4pt;color:#333;font-weight:600}
 .contact{margin:0 0 8pt;font-size:9pt;color:#222}
 .contact span+span::before{content:" · "}
-h2{font-size:9.6pt;text-transform:uppercase;letter-spacing:.6pt;margin:7pt 0 2.5pt;padding-bottom:1.5pt;border-bottom:.7pt solid #111;font-weight:700}
+h2{font-size:9.6pt;letter-spacing:.6pt;margin:7pt 0 2.5pt;padding-bottom:1.5pt;border-bottom:.7pt solid #111;font-weight:700}
 p{margin:0 0 2pt}
 .proj{margin:0 0 4pt}
 .proj h3{font-size:10pt;margin:0;font-weight:700}
@@ -127,22 +129,40 @@ li{margin:0 0 1.2pt}
 .ed{display:grid;grid-template-columns:1fr auto;gap:0 8pt}
 .ed div:nth-child(even){text-align:right;color:#333}
 .note{font-size:7.6pt;color:#444;margin-top:2pt}
+a{color:inherit;text-decoration:none}
 """
+
+import re
+LINKS = [("mail@yigitbuyukeren.com", "mailto:mail@yigitbuyukeren.com"), ("github.com/yigitbuyukeren/ridedeck", "https://github.com/yigitbuyukeren/ridedeck"),
+         ("github.com/yigitbuyukeren/exif-temizleyici", "https://github.com/yigitbuyukeren/exif-temizleyici"), ("github.com/yigitbuyukeren", "https://github.com/yigitbuyukeren"),
+         ("github.com/Gathin23/cleanyourtv", "https://github.com/Gathin23/cleanyourtv/pull/874"), ("yigitbuyukeren.com", "https://yigitbuyukeren.com/")]
+def linkify(t):
+    t = E(t)
+    pat = "|".join(re.escape(k) for k, _ in sorted(LINKS, key=lambda x: -len(x[0])))
+    d = dict(LINKS)
+    return re.sub(pat, lambda m: f'<a href="{d[m.group(0)]}">{m.group(0)}</a>', t)
+
+def tr_upper(t):
+    return t.replace("i", "İ").replace("ı", "I").upper()
+
+def H(c, k):
+    t = c['h'][k]
+    return tr_upper(t) if c['lang'] == 'tr' else t.upper()
 
 def print_html(c):
     projs = "".join(
-        f'<div class="proj"><h3>{E(p["name"])}</h3><p class="meta">{E(p["meta"])}</p><ul>' +
+        f'<div class="proj"><h3>{E(p["name"])}</h3><p class="meta">{linkify(p["meta"])}</p><ul>' +
         "".join(f"<li>{E(b)}</li>" for b in p["bullets"]) + "</ul></div>" for p in c["projects"])
     sk = "".join(f"<b>{E(k)}</b><span>{E(v)}</span>" for k, v in c["skills"])
-    ed = "".join(f"<div>{E(a)}, {E(b)}</div><div>{E(d)}</div>" for a, b, d in c["edu"])
-    contact = "".join(f"<span>{E(x)}</span>" for x in c["contact"])
+    ed = "".join(f"<div>{E(a)}{', ' + E(b) if b else ''}</div><div>{E(d)}</div>" for a, b, d in c["edu"])
+    contact = "".join(f"<span>{linkify(x)}</span>" for x in c["contact"])
     return f"""<!doctype html><html lang="{c['lang']}"><head><meta charset="utf-8"><title>{E(c['title'])}</title><style>{PRINT_CSS}</style></head><body>
 <h1>Yiğit Eren Büyükeren</h1><p class="role">{E(c['role'])}</p><p class="contact">{contact}</p>
-<h2>{E(c['h']['summary'])}</h2><p>{E(c['summary'])}</p>
-<h2>{E(c['h']['projects'])}</h2>{projs}
-<h2>{E(c['h']['oss'])}</h2><p>{E(c['oss'])}</p>
-<h2>{E(c['h']['skills'])}</h2><div class="sk">{sk}</div>
-<h2>{E(c['h']['edu'])}</h2><div class="ed">{ed}</div><p class="note">{E(c['edu_note'])}</p>
+<h2>{E(H(c,'summary'))}</h2><p>{E(c['summary'])}</p>
+<h2>{E(H(c,'projects'))}</h2>{projs}
+<h2>{E(H(c,'oss'))}</h2><p>{linkify(c['oss'])}</p>
+<h2>{E(H(c,'skills'))}</h2><div class="sk">{sk}</div>
+<h2>{E(H(c,'edu'))}</h2><div class="ed">{ed}</div><p class="note">{E(c['edu_note'])}</p>
 </body></html>"""
 
 WEB_CSS = """
@@ -196,7 +216,7 @@ def web_html(c, base):
 <h1>Yiğit Eren Büyükeren</h1><p class="role">{E(c['role'])}</p>
 <ul class="contact">{contact}</ul>
 <div class="actions"><a class="btn primary" href="{pdf}" download>{w['download']} <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="{other_pdf_href(c)}" download>{w['other_pdf']} <span class="arr" aria-hidden="true">↓</span></a></div>
-<h2>{E(c['h']['summary'])}</h2><p>{E(c['summary'])}</p>
+<h2>{E(tr_upper(c['h']['summary']) if c['lang']=='tr' else c['h']['summary'].upper())}</h2><p>{E(c['summary'])}</p>
 <h2>{E(c['h']['projects'])}</h2>{projs}
 <h2>{E(c['h']['oss'])}</h2><p>{E(c['oss'])}</p>
 <h2>{E(c['h']['skills'])}</h2><dl>{sk}</dl>
