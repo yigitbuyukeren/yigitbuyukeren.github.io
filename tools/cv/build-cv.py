@@ -22,7 +22,7 @@ CV = {
   "projects": [
    {"name": "RideDeck", "meta": "Kotlin, Jetpack Compose, MapLibre · Açık kaynak (Apache 2.0) · github.com/yigitbuyukeren/ridedeck",
     "bullets": [
-     "Telefonu motosiklet, araba ve bisiklet için CarPlay tarzı sürüş paneline çeviren Android uygulaması: GPS hız göstergesi, OpenStreetMap ve Valhalla ile sesli navigasyon. Hesap ve kendi sunucusu yok; imzalı v0.4.0 sürümü yayında.",
+     "Telefonu motosiklet, araba ve bisiklet için CarPlay tarzı sürüş paneline çeviren Android uygulaması: GPS hız göstergesi, OpenStreetMap ve Valhalla ile sesli navigasyon. Hesap ve kendi sunucusu yok; imzalı v0.5.0 sürümü yayında.",
      "GPS hız verisi için belirsizliğe göre yumuşatma ve aykırı ölçüm doğrulaması, rota eşleme ve yeniden hesaplama mantığını Android’den ayrılmış, birim testli sınıflar olarak yazdım.",
      "JUnit birim testleri; GitHub Actions'ta test, lint ve R8 ile küçültülmüş release derlemesi. Teknik vaka analizi ve bilinen sınırlamalar depoda belgeli.",
     ]},
@@ -69,7 +69,7 @@ CV = {
   "projects": [
    {"name": "RideDeck", "meta": "Kotlin, Jetpack Compose, MapLibre · Open source (Apache 2.0) · github.com/yigitbuyukeren/ridedeck",
     "bullets": [
-     "Android app that turns a phone into a CarPlay-style riding dashboard for motorcycles, cars and bicycles: GPS speedometer, voice-guided navigation with OpenStreetMap and Valhalla. No account or backend of its own; signed v0.4.0 release published.",
+     "Android app that turns a phone into a CarPlay-style riding dashboard for motorcycles, cars and bicycles: GPS speedometer, voice-guided navigation with OpenStreetMap and Valhalla. No account or backend of its own; signed v0.5.0 release published.",
      "Wrote uncertainty-aware GPS speed smoothing with outlier confirmation, route matching and re-routing logic as unit-tested classes separated from Android.",
      "JUnit unit tests; GitHub Actions runs tests, lint and an R8-minified release build. Technical case study and known limitations are documented in the repo.",
     ]},
