@@ -366,3 +366,12 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 .hero h1{font-size:clamp(44px,7vw,92px)}
 
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Veil: ekran görüntüsü yerine proje kimliği ve açık geliştirme durumu. */
+.work--veil{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.5fr}
+.veil-mark{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg-2);border-right:1px solid var(--rule);gap:20px}
+.veil-mark>span{font:600 clamp(100px,12vw,180px)/1 var(--f-display);letter-spacing:-.08em}
+.veil-dot{color:var(--accent)}
+.veil-mark small{font:500 12px/1.4 var(--f-mono);letter-spacing:.18em;color:var(--muted)}
+.work--veil .work-body{padding:clamp(24px,4vw,44px)}
+@media(max-width:760px){.work--veil{grid-template-columns:1fr}.veil-mark{min-height:180px;border-right:0;border-bottom:1px solid var(--rule)}}

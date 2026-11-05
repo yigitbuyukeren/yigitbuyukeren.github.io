@@ -22,7 +22,7 @@ Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, t
 
 | ⚡ **Hafif** | 🌗 **Açık ve koyu tema** | 🔴 **Canlı "Şu an" paneli** | 🔒 **İzleyici yok** |
 |:---:|:---:|:---:|:---:|
-| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | İstanbul saati, son gönderilen repo ve PR durumu GitHub'dan | Fontlar sitede, izleme ve reklam yok (yalnızca "Şu an" kutusu GitHub API'sini çağırır) |
+| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | İstanbul saati, son gönderilen açık depo GitHub'dan | Fontlar sitede, izleme ve reklam yok (yalnızca "Şu an" kutusu GitHub API'sini çağırır) |
 
 ### 🗺️ Sayfalar
 
@@ -32,13 +32,15 @@ Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, t
 | [`/cv/`](https://yigitbuyukeren.com/cv/) · [`/en/cv/`](https://yigitbuyukeren.com/en/cv/) | Özgeçmiş sayfası ve tek sayfalık PDF'ler (`Yigit-Eren-Buyukeren-CV-TR.pdf`, `-EN.pdf`) |
 | [`/ridedeck/`](https://yigitbuyukeren.com/ridedeck/) · [`/en/ridedeck/`](https://yigitbuyukeren.com/en/ridedeck/) | RideDeck proje sayfası |
 | [`/aile-cuzdani/`](https://yigitbuyukeren.com/aile-cuzdani/) · [`/en/aile-cuzdani/`](https://yigitbuyukeren.com/en/aile-cuzdani/) | Aile Cüzdanı proje sayfası, [gizlilik](https://yigitbuyukeren.com/aile-cuzdani/gizlilik/), [şartlar](https://yigitbuyukeren.com/aile-cuzdani/sartlar/) ve [hesap silme](https://yigitbuyukeren.com/aile-cuzdani/hesap-silme/) |
+| [`/veil/`](https://yigitbuyukeren.com/veil/) · [`/en/veil/`](https://yigitbuyukeren.com/en/veil/) | Veil: SimpleX tabanlı Android istemcisi, alfa hedefleri ve doğrulama sınırları |
 | [`/dogum-gunu/`](https://yigitbuyukeren.com/dogum-gunu/) | [Doğum Günü Sürprizi](https://github.com/yigitbuyukeren/dogum-gunu-surprizi)'nin canlı demosu |
 
 ### 🧱 Yapı
 
 ```text
 index.html, en/                ana sayfa (TR / EN)
-ridedeck/, en/ridedeck/        proje sayfası
+ridedeck/, en/ridedeck/        RideDeck proje sayfaları
+veil/, en/veil/                Veil proje ve geliştirme durumu
 aile-cuzdani/                  proje sayfası ve yasal metinler
 dogum-gunu/                    canlı demo
 assets/site.css                bütün sayfaların tek stil dosyası (renkler, açık/koyu tema)
@@ -60,13 +62,21 @@ python3 -m http.server 8000      # http://localhost:8000
 bash deploy.sh                   # rsync ile VPS'e gönderir; Caddy /var/www altından sunar
 ```
 
-GitHub Pages kullanılmıyor; site kendi sunucumda Caddy ile, otomatik HTTPS ile yayında. `deploy.sh` `.git`, `.github` ve README gibi yayına girmeyecek dosyaları atlar.
+### İçeriği güncelleme
+
+- Ana sayfa ve proje sayfaları Türkçe/İngilizce birlikte güncellenir.
+- Test sayıları tarihli doğrulama kayıtlarına dayanır; kaynak kod, indirilebilir sürüm ve sunucu durumu ayrı belirtilir.
+- CV değişiklikleri `tools/cv/build-cv.py` içinde yapılır; HTML ve PDF birlikte yeniden üretilir.
+- `python3 tools/check-site.py` bağlantıları, sayfa metalarını ve site haritasını denetler.
+- Profil kartları, ayrı profil deposundaki `tools/render.sh` ile bu sitenin kartlarından üretilir.
+
+Asıl adres **yigitbuyukeren.com**, kendi sunucumda Caddy ve otomatik HTTPS ile sunulur; VPS yayını `deploy.sh` ile ayrıca yapılır. **yigitbuyukeren.github.io** üzerinde de `main` dalından otomatik yayınlanan bir GitHub Pages kopyası etkindir. Canonical bağlantılar asıl alan adını gösterir. `deploy.sh` `.git`, `.github` ve README gibi yayına girmeyecek dosyaları atlar.
 
 <details>
 <summary><h3>🇬🇧 English</h3></summary>
 
-Source of my personal site, [yigitbuyukeren.com](https://yigitbuyukeren.com). **No build step, no framework:** plain HTML, one stylesheet and one script. Fonts are served from the site itself, so visitors' browsers make no requests to Google or any other CDN. Light and dark themes follow the system and can be switched by hand; a live "right now" panel shows the Istanbul time, the last pushed repository and a pull request's state from the GitHub API.
+Source of my personal site, [yigitbuyukeren.com](https://yigitbuyukeren.com). **No build step, no framework:** plain HTML, one stylesheet and one script. Fonts are served from the site itself, so visitors' browsers make no requests to Google or any other CDN. Light and dark themes follow the system and can be switched by hand; a live "right now" panel shows the Istanbul time and the last pushed public repository from the GitHub API.
 
-Pages: home (Turkish and English), RideDeck (Turkish and English), Aile Cüzdanı with its privacy, terms and account-deletion pages, and the live demo of the Birthday Surprise. Run it locally with `python3 -m http.server`; `deploy.sh` rsyncs it to a VPS where Caddy serves it over HTTPS.
+Pages: home (Turkish and English), RideDeck (Turkish and English), Aile Cüzdanı with its privacy, terms and account-deletion pages, Veil with its alpha status and verification limits, CV pages with downloadable PDFs, and the live demo of the Birthday Surprise. Run it locally with `python3 -m http.server`; `deploy.sh` rsyncs it to a VPS where Caddy serves the primary domain over HTTPS. A separate GitHub Pages copy at yigitbuyukeren.github.io publishes automatically from main; pushing to GitHub does not update the VPS.
 
 </details>

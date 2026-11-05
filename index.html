@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yiğit Eren Büyükeren · Software Developer: Android, Mobil ve Sunucu</title>
-<meta name="description" content="İstanbul'da Android, mobil ve sunucu tarafında çalışan yazılım geliştirici. Açık kaynak sürüş paneli RideDeck, ortak bütçe uygulaması Aile Cüzdanı, EXIF Temizleyici, Topnote ve Tazele.">
+<meta name="description" content="İstanbul'da Android, mobil ve sunucu tarafında çalışan yazılım geliştirici. RideDeck, Aile Cüzdanı, macOS araçları ve geliştirmedeki Veil mesajlaşma istemcisi.">
 <meta name="author" content="Yiğit Eren Büyükeren">
 <link rel="canonical" href="https://yigitbuyukeren.com/">
 <link rel="alternate" hreflang="tr" href="https://yigitbuyukeren.com/">
@@ -45,32 +45,32 @@
 <div class="hero-text">
 <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Software Developer · Android, Mobile &amp; Backend Systems</p>
 <h1>Yiğit Eren <em>Büyükeren</em></h1>
-<p class="lead">İstanbul'da Android, mobil ve sunucu tarafında uygulama geliştiriyorum. Arayüzü, arkasındaki sunucuyu ve testleri birlikte kurarım. En güçlü işlerim açık kaynak sürüş paneli RideDeck ve ortak bütçe uygulaması Aile Cüzdanı.</p>
+<p class="lead">İstanbul'da Android, mobil ve sunucu tarafında uygulama geliştiriyorum. Arayüzü, arkasındaki sunucuyu ve testleri birlikte kurarım. RideDeck ile sürüş deneyimi, Aile Cüzdanı ile ortak bütçe, Topnote ve Tazele ile macOS araçları geliştiriyorum.</p>
 <div class="actions"><a class="btn primary" href="#projeler">Projeleri İncele <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren" rel="me">GitHub ↗</a><a class="btn" href="/cv/Yigit-Eren-Buyukeren-CV-TR.pdf" download>CV İndir (PDF) <span class="arr" aria-hidden="true">↓</span></a></div>
 </div>
 <aside class="now" aria-label="Şu an">
 <div class="now-head"><span>Şu an</span><time id="clock">İstanbul</time></div>
 <dl>
 <div class="now-row"><dt>Durum</dt><dd><span class="live">Yeni projelere açığım</span></dd></div>
-<div class="now-row"><dt>Odak</dt><dd><a href="/aile-cuzdani/">Aile Cüzdanı</a><small>Mağaza yayınına hazırlık</small></dd></div>
-<div class="now-row"><dt>Son gönderim</dt><dd id="gh-last"><a href="https://github.com/yigitbuyukeren/tazele">tazele</a><small>30 Ekim</small></dd></div>
+<div class="now-row"><dt>Odak</dt><dd><a href="/veil/">Veil</a><small>Android mesajlaşma · alfa geliştirme</small></dd></div>
+<div class="now-row"><dt>Son gönderim</dt><dd id="gh-last"><a href="https://github.com/yigitbuyukeren?tab=repositories">Açık kaynak depolar</a><small>Güncel çalışmalar GitHub’da</small></dd></div>
 </dl>
 </aside>
 </section>
 <div class="wrap" aria-hidden="true"><div class="ruler"></div></div>
 
 <section id="projeler" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>01</b> · Öne çıkanlar</span><h2>Öne çıkan projeler</h2><p>İkisini de baştan sona ben geliştirdim: kod, test, sunucu ve yayın.</p></header>
+<header class="sec-head reveal"><span class="sec-no"><b>01</b> · Öne çıkanlar</span><h2>Öne çıkan projeler</h2><p>Kod, testler ve mimari kararlarıyla iki uçtan uca uygulama. Yayın durumları her projede ayrı belirtiliyor.</p></header>
 
 <article class="feature feature--ride reveal">
 <div class="feature-text">
-<p class="meta-line"><span>Android</span><span>Açık kaynak</span><span class="status-pill ok">v0.4.0 yayında</span></p>
+<p class="meta-line"><span>Android</span><span>Açık kaynak</span><span class="status-pill ok">v0.4.0 · son APK</span></p>
 <h3>RideDeck</h3>
 <p>Telefonu gidona takınca CarPlay tarzı sürüş paneline çeviren açık kaynak Android uygulaması: GPS hız göstergesi, OpenStreetMap ile sesli navigasyon, müzik ve telefon. Hesap yok, kendi sunucusu yok.</p>
 <dl class="figures">
-<div><dt>birim testi</dt><dd>396</dd></div>
+<div><dt>birim testleri</dt><dd>JUnit</dd></div>
 <div><dt>araç profili</dt><dd>3</dd></div>
-<div><dt>imzalı APK</dt><dd>24,6 MB</dd></div>
+<div><dt>son APK sürümü</dt><dd>0.4.0</dd></div>
 <div><dt>lisans</dt><dd>Apache 2.0</dd></div>
 </dl>
 <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li><li>GitHub Actions</li></ul>
@@ -93,12 +93,13 @@
 <h3>Aile Cüzdanı</h3>
 <p>Türk aileleri için ücretsiz ortak bütçe uygulaması: gelir, gider, taksit, abonelik ve birikim hedefleri ailenin üyeleriyle aynı ekranda. Yetkilendirme sunucuda uygulanır; mobil istemci, PocketBase sunucusu, bildirim zamanlayıcısı ve testler tek elden.</p>
 <dl class="figures">
-<div><dt>birim testi</dt><dd>206</dd></div>
-<div><dt>entegrasyon kontrolü</dt><dd>333</dd></div>
-<div><dt>veritabanı migration'ı</dt><dd>43</dd></div>
+<div><dt>birim testi</dt><dd>764</dd></div>
+<div><dt>entegrasyon kontrolü</dt><dd>400</dd></div>
+<div><dt>veritabanı migration'ı</dt><dd>48</dd></div>
+<div><dt>kaynak kodu</dt><dd>Özel</dd></div>
 </dl>
 <ul class="tags"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>PocketBase</li></ul>
-<p class="caveat">Henüz App Store veya Google Play'de yayınlanmadı; kaynak kodu özel. Ekran görüntüleri demo verisidir.</p>
+<p class="caveat">Mağaza yayını yok; kaynak kodu özel. 764 test 4 Kasım, 400 HTTP kontrolü 1 Kasım 2026 kayıtlarından; 48 migration kaynak kodda. Son sunucu değişikliklerinin dağıtımı ve HTTP doğrulaması bekliyor. Görseller demo verisidir.</p>
 <ul class="links"><li><a href="/aile-cuzdani/">Proje sayfası →</a></li><li><a href="https://github.com/yigitbuyukeren/aile-cuzdani-showcase">Tanıtım ve mimari ↗</a></li></ul>
 </div>
 <div class="feature-visual"><div class="phones">
@@ -112,7 +113,7 @@
 <section id="teknik" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>02</b> · Teknik çalışmalar</span><h2>Teknik çalışmalar</h2><p>Küçük kapsamlı ama sonuna kadar götürdüğüm, açık kaynak araçlar.</p></header>
 <div class="works">
-<article class="work reveal">
+<article class="work work--exif reveal">
 <div class="work-thumb"><img src="/assets/img/w-exif.webp" alt="EXIF Temizleyici: örnek bir fotoğrafta bulunan konum, cihaz ve zaman bilgisi listeleniyor" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>JavaScript</span><span>Bağımlılıksız</span><span>MIT</span></p>
@@ -122,17 +123,17 @@
 <ul class="links"><li><a href="https://yigitbuyukeren.github.io/exif-temizleyici/">Demo ↗</a></li><li><a href="https://github.com/yigitbuyukeren/exif-temizleyici">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--topnote reveal">
 <div class="work-thumb"><img src="/assets/img/w-topnote.webp" alt="Topnote: başka pencerelerin üstünde duran sarı not kağıdı" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Swift · SwiftUI · AppKit</span><span>macOS</span><span>MIT</span></p>
 <h3>Topnote</h3>
 <p>Tüm pencerelerin, masaüstlerinin ve tam ekran uygulamaların üstünde duran küçük yapışkan not. Menü çubuğu uygulaması, <code>⌃⌥N</code> genel kısayolu ve otomatik kayıt. Hesap, sunucu ve bağımlılık yok.</p>
-<p class="fact">6 birim testi · evrensel <b>.app</b> sürümü</p>
+<p class="fact">7 birim testi · evrensel <b>.app</b> sürümü</p>
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/topnote/releases/latest">İndir ↓</a></li><li><a href="https://github.com/yigitbuyukeren/topnote">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--tazele reveal">
 <div class="work-thumb"><img src="/assets/img/w-tazele.webp" alt="Tazele: Homebrew, kendi güncelleyicisi olan uygulamalar ve npm için bekleyen güncellemelerin kaynağa göre gruplanmış, seçilebilir listesi" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Swift · SwiftUI</span><span>macOS</span><span>MIT</span></p>
@@ -142,7 +143,7 @@
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/tazele">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--tvplus reveal">
 <div class="work-thumb"><img src="/assets/img/w-tvplus.webp" alt="Temizlikten sonra TV+ 4K Box ana ekranı" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Shell · ADB</span><span>Android TV</span><span>MIT</span></p>
@@ -152,6 +153,15 @@
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/tvplus-4k-box-rehber">GitHub ↗</a></li></ul>
 </div>
 </article>
+<article class="work work--veil reveal">
+<div class="veil-mark" aria-hidden="true"><span>V<span class="veil-dot">.</span></span><small>VEIL / ANDROID</small></div>
+<div class="work-body">
+<p class="meta-line"><span>Kotlin · SimpleX</span><span>Açık kaynak</span><span class="status-pill">Alfa geliştirme</span></p>
+<h3>Veil</h3>
+<p>SimpleX tabanlı, telefon numarası ve e-posta gerektirmeyen Android mesajlaşma istemcisi. Uygulama katmanında Tor üzerinden bağlantı politikası uygulanır; Tor yokken doğrudan bağlantıya geçilmez.</p>
+<p class="caveat">Kapalı alfa hedefleniyor. Bağımsız güvenlik denetimi ve gerçek cihaz doğrulaması yok; kullanıma hazır bir güvenlik ürünü değildir.</p>
+<ul class="links"><li><a href="/veil/">Proje ve geliştirme durumu →</a></li><li><a href="https://github.com/yigitbuyukeren/veil">Kaynak kodu ↗</a></li></ul>
+</div></article>
 </div>
 </section>
 
@@ -221,6 +231,9 @@
 <h3>Açık kaynak katkısı</h3>
 <table><thead><tr><th scope="col" class="vh">Katkı</th><th scope="col" class="vh">Açıklama</th><th scope="col" class="vh">Durum</th></tr></thead>
 <tr><td><a class="link" href="https://github.com/Gathin23/cleanyourtv/pull/874">cleanyourtv #874</a></td><td>Turkcell TV+ 4K Box (SDMC DV6069Y, Android TV 10) için örnek yapılandırma</td><td>Birleştirildi, 22 Eki 2026</td></tr>
+<tr><td><a class="link" href="https://github.com/lzhgus/Capso/pull/387">Capso #387</a></td><td>macOS ekran yakalama uygulamasına Türkçe yerelleştirme</td><td>Birleştirildi</td></tr>
+<tr><td><a class="link" href="https://github.com/omlahore/RemoveMacAI/pull/113">macOS çevirisi #113</a></td><td>macOS uygulamasına Türkçe çeviri</td><td>Birleştirildi</td></tr>
+<tr><td><a class="link" href="https://github.com/selimfirat/pysad/pull/471">pysad #471</a></td><td>HalfSpaceTrees ve xStream için Python tip ipuçları</td><td>Birleştirildi</td></tr>
 </table>
 </div>
 </div>

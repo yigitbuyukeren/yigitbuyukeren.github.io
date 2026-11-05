@@ -23,14 +23,14 @@ CV = {
    {"name": "RideDeck", "meta": "Kotlin, Jetpack Compose, MapLibre · Açık kaynak (Apache 2.0) · github.com/yigitbuyukeren/ridedeck",
     "bullets": [
      "Telefonu motosiklet, araba ve bisiklet için CarPlay tarzı sürüş paneline çeviren Android uygulaması: GPS hız göstergesi, OpenStreetMap ve Valhalla ile sesli navigasyon. Hesap ve kendi sunucusu yok; imzalı v0.4.0 sürümü yayında.",
-     "GPS hız verisi için alpha-beta filtre ve aykırı değer kapısı, rota eşleme ve yeniden hesaplama mantığını Android'den ayrılmış, birim testli sınıflar olarak yazdım.",
-     "396 birim testi; GitHub Actions'ta test, lint ve R8 ile küçültülmüş release derlemesi. Teknik vaka analizi ve bilinen sınırlamalar depoda belgeli.",
+     "GPS hız verisi için belirsizliğe göre yumuşatma ve aykırı ölçüm doğrulaması, rota eşleme ve yeniden hesaplama mantığını Android’den ayrılmış, birim testli sınıflar olarak yazdım.",
+     "JUnit birim testleri; GitHub Actions'ta test, lint ve R8 ile küçültülmüş release derlemesi. Teknik vaka analizi ve bilinen sınırlamalar depoda belgeli.",
     ]},
    {"name": "Aile Cüzdanı", "meta": "React Native, Expo, TypeScript, PocketBase, Python · Geliştirmede, özel kaynak kodu",
     "bullets": [
      "Türk aileleri için ortak bütçe uygulaması: mobil istemci, PocketBase sunucusu (erişim kuralları, rol kontrolü ve hız sınırı sunucuda uygulanır) ve Expo push bildirimleri için Python zamanlayıcısı.",
-     "43 eklemeli veritabanı migration'ı; tek VPS üzerinde Caddy ile HTTPS yayın ve yedekleme.",
-     "206 birim testi ve geçici bir PocketBase örneğine karşı 333 HTTP entegrasyon kontrolü. Henüz mağazada yayınlanmadı.",
+     "48 eklemeli veritabanı migration’ı kaynak kodda; Caddy ile HTTPS ve yedekleme. Son sunucu değişikliklerinin dağıtımı bekliyor.",
+     "4 Kasım 2026 kaydında 764 test; 1 Kasım kaydında 400 HTTP kontrolü. Son sunucu değişikliklerinin HTTP doğrulaması bekliyor; mağaza yayını yok.",
     ]},
    {"name": "EXIF Temizleyici", "meta": "JavaScript, Node.js · Açık kaynak (MIT) · github.com/yigitbuyukeren/exif-temizleyici",
     "bullets": [
@@ -38,7 +38,7 @@ CV = {
      "38 test ve GitHub Actions.",
     ]},
   ],
-  "oss": "cleanyourtv #874: Turkcell TV+ 4K Box (SDMC DV6069Y, Android TV 10) için örnek yapılandırma; birleştirildi (Ekim 2026), github.com/Gathin23/cleanyourtv",
+  "oss": "Birleştirilen katkılar: cleanyourtv #874 (TV+ yapılandırması), Capso #387 (Türkçe yerelleştirme), macOS uygulaması #113 (Türkçe çeviri), pysad #471 (Python tip ipuçları).",
   "skills": [
    ("Android / mobil", "Kotlin, Jetpack Compose, MapLibre, Gradle, ADB, React Native, Expo, TypeScript"),
    ("Sunucu", "PocketBase, REST API, Python, JavaScript (Node.js)"),
@@ -70,14 +70,14 @@ CV = {
    {"name": "RideDeck", "meta": "Kotlin, Jetpack Compose, MapLibre · Open source (Apache 2.0) · github.com/yigitbuyukeren/ridedeck",
     "bullets": [
      "Android app that turns a phone into a CarPlay-style riding dashboard for motorcycles, cars and bicycles: GPS speedometer, voice-guided navigation with OpenStreetMap and Valhalla. No account or backend of its own; signed v0.4.0 release published.",
-     "Wrote an alpha-beta filter with an outlier gate for GPS speed, plus route matching and re-routing logic, as unit-tested classes separated from Android.",
-     "396 unit tests; GitHub Actions runs tests, lint and an R8-minified release build. Technical case study and known limitations are documented in the repo.",
+     "Wrote uncertainty-aware GPS speed smoothing with outlier confirmation, route matching and re-routing logic as unit-tested classes separated from Android.",
+     "JUnit unit tests; GitHub Actions runs tests, lint and an R8-minified release build. Technical case study and known limitations are documented in the repo.",
     ]},
    {"name": "Aile Cüzdanı", "meta": "React Native, Expo, TypeScript, PocketBase, Python · In development, private source",
     "bullets": [
      "Shared budgeting app for Turkish families: mobile client, PocketBase backend (access rules, role checks and rate limiting enforced on the server) and a Python scheduler for Expo push notifications.",
-     "43 append-only database migrations; single-VPS deployment with Caddy HTTPS and backups.",
-     "206 unit tests and 333 HTTP integration checks against a throwaway PocketBase instance. Not yet published in a store.",
+     "48 append-only migrations in source; single-VPS hosting with Caddy HTTPS and backups. Latest backend deployment is pending.",
+     "764 tests recorded on 4 Nov 2026; 400 HTTP checks on 1 Nov. Latest backend HTTP verification is pending; not published in a store.",
     ]},
    {"name": "EXIF Cleaner", "meta": "JavaScript, Node.js · Open source (MIT) · github.com/yigitbuyukeren/exif-temizleyici",
     "bullets": [
@@ -85,7 +85,7 @@ CV = {
      "38 tests and GitHub Actions.",
     ]},
   ],
-  "oss": "cleanyourtv #874: example configuration for the Turkcell TV+ 4K Box (SDMC DV6069Y, Android TV 10); merged (Oct 2026), github.com/Gathin23/cleanyourtv",
+  "oss": "Merged contributions: cleanyourtv #874 (TV+ configuration), Capso #387 (Turkish localization), macOS app #113 (Turkish translation), pysad #471 (Python type hints).",
   "skills": [
    ("Android / mobile", "Kotlin, Jetpack Compose, MapLibre, Gradle, ADB, React Native, Expo, TypeScript"),
    ("Backend", "PocketBase, REST API, Python, JavaScript (Node.js)"),
@@ -133,7 +133,7 @@ a{color:inherit;text-decoration:none}
 """
 
 import re
-LINKS = [("mail@yigitbuyukeren.com", "mailto:mail@yigitbuyukeren.com"), ("github.com/yigitbuyukeren/ridedeck", "https://github.com/yigitbuyukeren/ridedeck"),
+LINKS = [("cleanyourtv #874", "https://github.com/Gathin23/cleanyourtv/pull/874"), ("Capso #387", "https://github.com/lzhgus/Capso/pull/387"), ("macOS uygulaması #113", "https://github.com/omlahore/RemoveMacAI/pull/113"), ("macOS app #113", "https://github.com/omlahore/RemoveMacAI/pull/113"), ("pysad #471", "https://github.com/selimfirat/pysad/pull/471"), ("mail@yigitbuyukeren.com", "mailto:mail@yigitbuyukeren.com"), ("github.com/yigitbuyukeren/ridedeck", "https://github.com/yigitbuyukeren/ridedeck"),
          ("github.com/yigitbuyukeren/exif-temizleyici", "https://github.com/yigitbuyukeren/exif-temizleyici"), ("github.com/yigitbuyukeren", "https://github.com/yigitbuyukeren"),
          ("github.com/Gathin23/cleanyourtv", "https://github.com/Gathin23/cleanyourtv/pull/874"), ("yigitbuyukeren.com", "https://yigitbuyukeren.com/")]
 def linkify(t):

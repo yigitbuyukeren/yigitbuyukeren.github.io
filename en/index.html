@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yiğit Eren Büyükeren · Software Developer: Android, Mobile and Backend</title>
-<meta name="description" content="Software developer in Istanbul working on Android, mobile and backend systems. Open-source riding dashboard RideDeck, shared budgeting app Aile Cüzdanı, EXIF Cleaner, Topnote and Tazele.">
+<meta name="description" content="Software developer in Istanbul working on Android, mobile and backend systems. RideDeck, Aile Cüzdanı, macOS tools and the Veil messaging client in development.">
 <meta name="author" content="Yiğit Eren Büyükeren">
 <link rel="canonical" href="https://yigitbuyukeren.com/en/">
 <link rel="alternate" hreflang="tr" href="https://yigitbuyukeren.com/">
@@ -45,32 +45,32 @@
 <div class="hero-text">
 <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Software Developer · Android, Mobile &amp; Backend Systems</p>
 <h1>Yiğit Eren <em>Büyükeren</em></h1>
-<p class="lead">I build Android, mobile and server-side software in Istanbul: the interface, the server behind it and the tests together. My strongest work is RideDeck, an open-source riding dashboard, and Aile Cüzdanı, a shared budgeting app.</p>
+<p class="lead">I build Android, mobile and server-side software in Istanbul: the interface, the server behind it and the tests together. My work spans RideDeck for riding, Aile Cüzdanı for shared budgets, and Topnote and Tazele for macOS.</p>
 <div class="actions"><a class="btn primary" href="#projects">View projects <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren" rel="me">GitHub ↗</a><a class="btn" href="/en/cv/Yigit-Eren-Buyukeren-CV-EN.pdf" download>Download CV (PDF) <span class="arr" aria-hidden="true">↓</span></a></div>
 </div>
 <aside class="now" aria-label="Right now">
 <div class="now-head"><span>Right now</span><time id="clock">Istanbul</time></div>
 <dl>
 <div class="now-row"><dt>Status</dt><dd><span class="live">Open to new projects</span></dd></div>
-<div class="now-row"><dt>Focus</dt><dd><a href="/en/aile-cuzdani/">Aile Cüzdanı</a><small>Preparing for a store release</small></dd></div>
-<div class="now-row"><dt>Latest push</dt><dd id="gh-last"><a href="https://github.com/yigitbuyukeren/tazele">tazele</a><small>30 Oct</small></dd></div>
+<div class="now-row"><dt>Focus</dt><dd><a href="/en/veil/">Veil</a><small>Android messaging · alpha development</small></dd></div>
+<div class="now-row"><dt>Latest push</dt><dd id="gh-last"><a href="https://github.com/yigitbuyukeren?tab=repositories">Public repositories</a><small>Latest work on GitHub</small></dd></div>
 </dl>
 </aside>
 </section>
 <div class="wrap" aria-hidden="true"><div class="ruler"></div></div>
 
 <section id="projects" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>01</b> · Featured</span><h2>Featured projects</h2><p>I built both end to end: code, tests, server and release.</p></header>
+<header class="sec-head reveal"><span class="sec-no"><b>01</b> · Featured</span><h2>Featured projects</h2><p>Two end-to-end applications, with code, tests and documented architecture. Release status is shown for each project.</p></header>
 
 <article class="feature feature--ride reveal">
 <div class="feature-text">
-<p class="meta-line"><span>Android</span><span>Open source</span><span class="status-pill ok">v0.4.0 released</span></p>
+<p class="meta-line"><span>Android</span><span>Open source</span><span class="status-pill ok">v0.4.0 · latest APK</span></p>
 <h3>RideDeck</h3>
-<p>An open-source Android app that turns a phone on the handlebar into a CarPlay-style riding dashboard: GPS speedometer, voice-guided OpenStreetMap navigation, Turkish voice commands, music and phone. No account, no backend of its own.</p>
+<p>An open-source Android app that turns a phone on the handlebar into a CarPlay-style riding dashboard: GPS speedometer, voice-guided OpenStreetMap navigation, music and phone. No account, no backend of its own.</p>
 <dl class="figures">
-<div><dt>unit tests</dt><dd>396</dd></div>
+<div><dt>unit tests</dt><dd>JUnit</dd></div>
 <div><dt>vehicle profiles</dt><dd>3</dd></div>
-<div><dt>signed APK</dt><dd>24.6 MB</dd></div>
+<div><dt>latest APK</dt><dd>0.4.0</dd></div>
 <div><dt>license</dt><dd>Apache 2.0</dd></div>
 </dl>
 <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li><li>GitHub Actions</li></ul>
@@ -93,12 +93,13 @@
 <h3>Aile Cüzdanı</h3>
 <p>A free shared budgeting app for Turkish families: income, expenses, instalments, subscriptions and savings goals on one screen with the whole family. Authorization is enforced on the server; mobile client, PocketBase backend, notification scheduler and tests all by one person.</p>
 <dl class="figures">
-<div><dt>birim testi</dt><dd>206</dd></div>
-<div><dt>integration checks</dt><dd>333</dd></div>
-<div><dt>database migrations</dt><dd>43</dd></div>
+<div><dt>unit tests</dt><dd>764</dd></div>
+<div><dt>integration checks</dt><dd>400</dd></div>
+<div><dt>database migrations</dt><dd>48</dd></div>
+<div><dt>source code</dt><dd>Private</dd></div>
 </dl>
 <ul class="tags"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>PocketBase</li></ul>
-<p class="caveat">Not yet published on the App Store or Google Play; the source code is private. Screenshots show demo data.</p>
+<p class="caveat">Not in stores; private source. 764 tests recorded on 4 Nov and 400 HTTP checks on 1 Nov 2026; 48 migrations in source. Latest backend changes still await deployment and HTTP verification. Screenshots use demo data.</p>
 <ul class="links"><li><a href="/en/aile-cuzdani/">Project page →</a></li><li><a href="https://github.com/yigitbuyukeren/aile-cuzdani-showcase">Showcase and architecture ↗</a></li></ul>
 </div>
 <div class="feature-visual"><div class="phones">
@@ -112,7 +113,7 @@
 <section id="technical" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>02</b> · Technical work</span><h2>Technical work</h2><p>Small in scope, open source, taken all the way to the end.</p></header>
 <div class="works">
-<article class="work reveal">
+<article class="work work--exif reveal">
 <div class="work-thumb"><img src="/assets/img/w-exif.webp" alt="EXIF Cleaner: location, device and time found in a sample photo" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>JavaScript</span><span>No dependencies</span><span>MIT</span></p>
@@ -122,17 +123,17 @@
 <ul class="links"><li><a href="https://yigitbuyukeren.github.io/exif-temizleyici/">Demo ↗</a></li><li><a href="https://github.com/yigitbuyukeren/exif-temizleyici">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--topnote reveal">
 <div class="work-thumb"><img src="/assets/img/w-topnote.webp" alt="Topnote: a yellow sticky note floating above other windows" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Swift · SwiftUI · AppKit</span><span>macOS</span><span>MIT</span></p>
 <h3>Topnote</h3>
 <p>A small sticky note that stays above all windows, Spaces and full-screen apps. Menu-bar app, <code>⌃⌥N</code> global hotkey and autosave. No account, server or dependencies.</p>
-<p class="fact">6 unit tests · universal <b>.app</b> release</p>
+<p class="fact">7 unit tests · universal <b>.app</b> release</p>
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/topnote/releases/latest">Download ↓</a></li><li><a href="https://github.com/yigitbuyukeren/topnote">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--tazele reveal">
 <div class="work-thumb"><img src="/assets/img/w-tazele.webp" alt="Tazele: pending updates for Homebrew, self-updating apps and npm, grouped by source in a selectable list" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Swift · SwiftUI</span><span>macOS</span><span>MIT</span></p>
@@ -142,7 +143,7 @@
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/tazele">GitHub ↗</a></li></ul>
 </div>
 </article>
-<article class="work reveal">
+<article class="work work--tvplus reveal">
 <div class="work-thumb"><img src="/assets/img/w-tvplus.webp" alt="TV+ 4K Box home screen after cleanup" width="960" height="540" loading="lazy"></div>
 <div class="work-body">
 <p class="meta-line"><span>Shell · ADB</span><span>Android TV</span><span>MIT</span></p>
@@ -152,6 +153,15 @@
 <ul class="links"><li><a href="https://github.com/yigitbuyukeren/tvplus-4k-box-rehber">GitHub ↗</a></li></ul>
 </div>
 </article>
+<article class="work work--veil reveal">
+<div class="veil-mark" aria-hidden="true"><span>V<span class="veil-dot">.</span></span><small>VEIL / ANDROID</small></div>
+<div class="work-body">
+<p class="meta-line"><span>Kotlin · SimpleX</span><span>Open source</span><span class="status-pill">Alpha development</span></p>
+<h3>Veil</h3>
+<p>An Android messaging client based on SimpleX, without phone numbers or email. The app layer enforces a Tor-only connection policy, with no automatic direct-network fallback when Tor is unavailable.</p>
+<p class="caveat">A closed alpha is the target. No independent security audit or real-device verification; it is not a production-ready security product.</p>
+<ul class="links"><li><a href="/en/veil/">Project and development status →</a></li><li><a href="https://github.com/yigitbuyukeren/veil">Source code ↗</a></li></ul>
+</div></article>
 </div>
 </section>
 
@@ -221,6 +231,9 @@
 <h3>Open-source contribution</h3>
 <table><thead><tr><th scope="col" class="vh">Contribution</th><th scope="col" class="vh">Description</th><th scope="col" class="vh">Status</th></tr></thead>
 <tr><td><a class="link" href="https://github.com/Gathin23/cleanyourtv/pull/874">cleanyourtv #874</a></td><td>Example configuration for the Turkcell TV+ 4K Box (SDMC DV6069Y, Android TV 10)</td><td>Merged, 22 Oct 2026</td></tr>
+<tr><td><a class="link" href="https://github.com/lzhgus/Capso/pull/387">Capso #387</a></td><td>Turkish localization for a macOS screen capture app</td><td>Merged</td></tr>
+<tr><td><a class="link" href="https://github.com/omlahore/RemoveMacAI/pull/113">macOS translation #113</a></td><td>Turkish translation for a macOS app</td><td>Merged</td></tr>
+<tr><td><a class="link" href="https://github.com/selimfirat/pysad/pull/471">pysad #471</a></td><td>Python type hints for HalfSpaceTrees and xStream</td><td>Merged</td></tr>
 </table>
 </div>
 </div>
