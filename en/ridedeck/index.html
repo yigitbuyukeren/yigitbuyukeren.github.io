@@ -44,7 +44,7 @@
 <p class="lead">An open-source Android launcher for motorcycles, cars and bicycles. Speed, map, music and phone on one screen; glove-sized controls and no typing while riding. No accounts, no keys, no servers.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">Download APK <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Source code ↗</a></div>
 <ul class="tags"><li>v0.4.0</li><li>Apache 2.0</li><li>Android 8+</li><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li></ul>
-<p class="caveat">The downloadable APK is v0.4.0. Newer navigation and speed-filter changes are in the source; a new release and field verification are pending.</p>
+<p class="caveat">The downloadable APK is v0.4.0. The source is at 0.5.0 (alternative routes, multi-stop routes, offline map areas, speed-limit warning, new speed filter); the release and field verification are pending.</p>
 </div>
 <div class="p-hero-visual"><div class="panel-dark"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigation: turn right in 60 metres" width="1600" height="720" fetchpriority="high"></div></div></div>
 </section>
@@ -85,13 +85,14 @@
 <div class="spec reveal"><h3>Navigation</h3><ul>
 <li>MapLibre + OpenStreetMap (OpenFreeMap), Nominatim search, Valhalla routing, automatic re-route.</li>
 <li>Avoid highways and tolls; saved places (Home, Work, favorites) and "Go home".</li>
-<li>The current source supports up to three route stops and downloadable map areas. Routing and address search still require an internet connection.</li>
+<li>The current source supports up to three route stops, alternative routes and downloadable map areas. Routing and address search still require an internet connection.</li>
+<li>Spoken guidance uses Android's text-to-speech and follows the phone language: Turkish on a Turkish phone, English otherwise. There are no voice commands or speech recognition.</li>
 <li>Speed-limit display and spoken warning; the search box locks while riding.</li>
 </ul></div>
 <div class="spec reveal"><h3>Safety</h3><ul>
 <li>Weather: temperature, rain and ice alerts within an hour, strong wind on bikes.</li>
 <li>Heat protection: the screen dims above 42°C and goes dark when stopped.</li>
-<li>SOS (off by default): automatic crash detection or long-press button; after the countdown, one SMS with your location to up to 3 contacts, no calls.</li>
+<li>SOS (off by default): automatic crash detection or long-press button; after the countdown, one SMS with your location to up to 3 contacts, no calls. It only runs while the app is on screen.</li>
 </ul></div>
 <div class="spec reveal"><h3>Phone and media</h3><ul>
 <li>In-app phone: recent calls, contacts and dial pad; the dial pad is locked while riding.</li>
@@ -114,7 +115,7 @@
 <p class="callout reveal"><span aria-hidden="true">⚠</span><span><b>Note:</b> This app can distract you while riding. Mount the phone securely, change settings while parked and follow traffic rules. The software is provided without warranty.</span></p>
 
 <div class="band reveal">
-<div><h2>Open to contributions</h2><p>Issues and PRs are welcome: new translations, offline maps and routing, tablet layouts.</p></div>
+<div><h2>Open to contributions</h2><p>Issues and PRs are welcome: new translations, offline routing and search, tablet layouts.</p></div>
 <div class="actions"><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">Download APK ↓</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck">GitHub ↗</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck/blob/main/docs/CASE-STUDY.en.md">Technical case study ↗</a></div>
 </div>
 </section>

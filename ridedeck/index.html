@@ -44,7 +44,7 @@
 <p class="lead">Motosiklet, araba ve bisiklet için açık kaynak Android launcher. Hız, harita, müzik ve telefon tek ekranda; arayüz eldivenle kullanılacak büyüklükte, sürerken yazı girişi yok. Hesap yok, anahtar yok, sunucu yok.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Kaynak kodu ↗</a></div>
 <ul class="tags"><li>v0.4.0</li><li>Apache 2.0</li><li>Android 8+</li><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li></ul>
-<p class="caveat">İndirilebilir APK v0.4.0. Yeni navigasyon ve hız filtresi değişiklikleri kaynak kodda; yeni sürüm ve saha doğrulaması bekliyor.</p>
+<p class="caveat">İndirilebilir APK v0.4.0. Kaynak kod 0.5.0 sürümünde (alternatif rotalar, çok duraklı rota, çevrimdışı harita alanı, hız limiti uyarısı, yeni hız filtresi); sürüm yayını ve saha doğrulaması bekliyor.</p>
 </div>
 <div class="p-hero-visual"><div class="panel-dark"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigasyon ekranı: 60 metre sonra sağa dönün" width="1600" height="720" fetchpriority="high"></div></div></div>
 </section>
@@ -85,13 +85,14 @@
 <div class="spec reveal"><h3>Navigasyon</h3><ul>
 <li>MapLibre + OpenStreetMap (OpenFreeMap), Nominatim arama, Valhalla rota, rota dışına çıkınca yeniden hesaplama.</li>
 <li>Otoyolsuz ve ücretsiz yol seçenekleri; kayıtlı yerler (Ev, İş, favoriler) ve "Eve git".</li>
-<li>Güncel kaynak kodda en fazla üç ara durakla rota planlanır; çevrimdışı harita alanı indirilebilir. Rota hesabı ve adres araması internet gerektirir.</li>
+<li>Güncel kaynak kodda en fazla üç ara durakla rota planlanır, alternatif rotalar seçilebilir; çevrimdışı harita alanı indirilebilir. Rota hesabı ve adres araması internet gerektirir.</li>
+<li>Sesli yönlendirme Android'in metin okuma motorunu kullanır ve telefon diline uyar: Türkçe telefonda Türkçe, diğerlerinde İngilizce. Sesli komut veya konuşma tanıma yoktur.</li>
 <li>Yolun hız limiti ve aşınca sesli uyarı; sürerken arama kutusu kilitlenir.</li>
 </ul></div>
 <div class="spec reveal"><h3>Güvenlik</h3><ul>
 <li>Hava durumu: sıcaklık, 1 saat içinde yağmur ve buzlanma uyarısı, bisiklette sert rüzgâr.</li>
 <li>Isınma koruması: telefon 42°C'yi aşınca ekran kısılır, araç durunca kararır.</li>
-<li>SOS (varsayılan kapalı): otomatik kaza algılama veya uzun basmalı düğme; geri sayımdan sonra en fazla 3 kişiye konum linkli tek SMS, arama yok.</li>
+<li>SOS (varsayılan kapalı): otomatik kaza algılama veya uzun basmalı düğme; geri sayımdan sonra en fazla 3 kişiye konum linkli tek SMS, arama yok. Yalnızca uygulama ekrandayken çalışır.</li>
 </ul></div>
 <div class="spec reveal"><h3>Telefon ve medya</h3><ul>
 <li>Uygulama içi telefon: son aramalar, rehber ve tuş takımı; sürerken tuş takımı kilitli.</li>
@@ -114,7 +115,7 @@
 <p class="callout reveal"><span aria-hidden="true">⚠</span><span><b>Dikkat:</b> Bu uygulama sürüş sırasında dikkat dağıtabilir. Telefonu sabitle, ayarları park halindeyken yap ve trafik kurallarına uy. Yazılım garantisiz sunulur.</span></p>
 
 <div class="band reveal">
-<div><h2>Katkıya açık</h2><p>Issue ve PR'lar açık: yeni dil çevirileri, çevrimdışı harita ve rota, tablet düzenleri.</p></div>
+<div><h2>Katkıya açık</h2><p>Issue ve PR'lar açık: yeni dil çevirileri, çevrimdışı rota ve arama, tablet düzenleri.</p></div>
 <div class="actions"><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir ↓</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck">GitHub ↗</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck/blob/main/docs/CASE-STUDY.md">Teknik vaka analizi ↗</a></div>
 </div>
 </section>
