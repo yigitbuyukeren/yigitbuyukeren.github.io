@@ -1,4 +1,4 @@
-/* Tema düğmesi, üst bar çizgisi, görünür olunca belirme, İstanbul saati ve GitHub'dan canlı bilgiler. */
+/* Tema düğmesi, üst bar çizgisi, etkin bölüm, görünür olunca belirme, İstanbul saati ve GitHub'dan canlı bilgiler. */
 (function () {
   var d = document, root = d.documentElement, EN = root.lang === 'en';
 
@@ -24,6 +24,21 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
     r.forEach(function (e) { io.observe(e); });
   } else r.forEach(function (e) { e.classList.add('in'); });
+
+  /* Üst çubukta görünen bölümün bağlantısını işaretle */
+  var links = d.querySelectorAll('.site-nav a[href^="#"]');
+  if (links.length && 'IntersectionObserver' in window) {
+    var map = {};
+    links.forEach(function (a) { var s = d.getElementById(a.getAttribute('href').slice(1)); if (s) map[s.id] = a; });
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        map[e.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    Object.keys(map).forEach(function (id) { spy.observe(d.getElementById(id)); });
+  }
 
   /* İstanbul saati */
   var clock = d.getElementById('clock');

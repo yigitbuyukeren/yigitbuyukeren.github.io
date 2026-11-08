@@ -166,25 +166,27 @@ def print_html(c):
 </body></html>"""
 
 WEB_CSS = """
-.cv{max-width:calc(860px + 2*var(--gutter));padding-block:clamp(28px,5vw,64px) 96px}
-.cv h1{font-size:clamp(38px,6vw,64px);margin-bottom:10px}
-.cv .role{font:500 14px/1.4 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
-.cv .contact{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:0 0 22px;padding:0;color:var(--ink-2)}
-.cv h2{font-size:22px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--ink);letter-spacing:-.02em}
-.cv .proj{margin:0 0 26px}
-.cv .proj h3{font-size:24px;letter-spacing:-.025em;margin-bottom:4px}
-.cv .proj .meta{font:500 13px/1.5 var(--f-mono);color:var(--muted);margin:0 0 8px}
+.cv{max-width:calc(880px + 2*var(--gutter));padding-block:clamp(28px,5vw,72px) 112px}
+.cv h1{font-size:clamp(48px,7vw + 8px,96px);letter-spacing:-.055em;line-height:.94;margin-bottom:16px}
+.cv .role{font:500 13px/1.5 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+.cv ul.contact{display:flex;flex-wrap:wrap;gap:0 24px;list-style:none;margin:0 0 24px;padding:0;color:var(--ink-2)}
+.cv ul.contact li{display:flex;align-items:center;min-height:44px}
+.cv h2{font:500 12.5px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:64px 0 24px;padding-top:16px;border-top:1px solid var(--rule-strong)}
+.cv .proj{margin:0 0 36px}
+.cv .proj h3{font-size:var(--fs-h4);letter-spacing:-.035em;margin-bottom:6px}
+.cv .proj .meta{font:500 13px/1.5 var(--f-mono);color:var(--muted);margin:0 0 12px}
 .cv ul.b{margin:0;padding-left:20px;color:var(--ink-2)}
-.cv ul.b li{margin:0 0 6px}
-.cv dl{display:grid;grid-template-columns:200px 1fr;gap:8px 20px;margin:0}
+.cv ul.b li{margin:0 0 8px}
+.cv ul.b li::marker{color:var(--accent)}
+.cv h2 + p{color:var(--ink-2)}
+.cv dl{display:grid;grid-template-columns:200px 1fr;gap:12px 24px;margin:0}
 .cv dt{font-weight:600}
 .cv dd{margin:0;color:var(--ink-2)}
 .cv table{width:100%;border-collapse:collapse}
-.cv td{padding:10px 0;border-top:1px solid var(--rule);vertical-align:top}
-.cv td:last-child{text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:13.5px;color:var(--muted)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cv .note{color:var(--muted);font-size:14.5px;margin-top:10px}
-@media (max-width:640px){.cv dl{grid-template-columns:1fr}.cv dd{margin-bottom:8px}}
+.cv td{padding:14px 0;border-top:1px solid var(--rule);vertical-align:top}
+.cv td:last-child{text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.cv .note{color:var(--muted);font-size:var(--fs-sm);margin-top:12px}
+@media (max-width:640px){.cv dl{grid-template-columns:1fr;gap:2px}.cv dd{margin-bottom:12px}.cv td:last-child{white-space:normal}}
 """
 
 def web_html(c, base):
@@ -214,7 +216,7 @@ def web_html(c, base):
 {header}
 <main id="main"><article class="cv wrap">
 <p class="crumbs"><a href="{w['home']}">{w['back']}</a><span aria-hidden="true">/</span><span>CV</span></p>
-<h1>Yiğit Eren Büyükeren</h1><p class="role">{E(c['role'])}</p>
+<h1>Yiğit Eren Büyükeren</h1><p class="role"{'' if en else ' lang="en"'}>{E(c['role'])}</p>
 <ul class="contact">{contact}</ul>
 <div class="actions"><a class="btn primary" href="{pdf}" download>{w['download']} <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="{other_pdf_href(c)}" download>{w['other_pdf']} <span class="arr" aria-hidden="true">↓</span></a></div>
 <h2>{E(tr_upper(c['h']['summary']) if c['lang']=='tr' else c['h']['summary'].upper())}</h2><p>{E(c['summary'])}</p>
