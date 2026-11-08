@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>og-home</title>
+<!-- Ana sayfa paylaşım görseli (1200x630), "Sinyal" tasarımı.
+     Dil: ?lang=tr (varsayılan) veya ?lang=en. Elle üretmek için tools/og/render-og.sh çalıştır;
+     bu dosya sitenin köküyle birlikte sunulan _gh/ altından açılır, /assets/site.css'i kullanır. -->
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#0A0A0B}
+.og{position:relative;width:1200px;height:630px;padding:56px 72px;background:#0A0A0B;color:#EDEDE8;display:flex;flex-direction:column}
+.og::before{content:"";position:absolute;inset:0 72px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px calc(100% / 12));border-right:1px solid rgba(255,255,255,.06)}
+.og>*{position:relative}
+.top{display:flex;align-items:center;justify-content:space-between}
+.id{display:flex;align-items:center;gap:16px;font:500 26px/1 var(--f-body)}
+.badge{display:inline-flex;align-items:center;justify-content:center;height:46px;min-width:58px;padding:0 12px;border:1px solid #34343A;border-radius:7px;background:#121214;font:600 22px/1 var(--f-mono);letter-spacing:-.06em}
+.badge i{color:#D4FF3A;font-style:normal}
+.dom{font:500 24px/1 var(--f-mono);letter-spacing:.04em;color:#A3A3A0}
+h1{margin:auto 0 0;font:400 122px/.93 var(--f-display);letter-spacing:-.03em}
+h1 em{color:#D4FF3A;font-style:italic}
+.bot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:40px}
+.tag{font:500 23px/1.2 var(--f-mono);letter-spacing:.03em;color:#A3A3A0;display:flex;align-items:center;gap:14px}
+.tag::before{content:"";width:12px;height:12px;border-radius:50%;background:#D4FF3A;box-shadow:0 0 0 6px rgba(212,255,58,.15)}
+.av{position:absolute;right:72px;top:40px;width:128px;height:128px;border-radius:50%;overflow:hidden;background:rgba(212,255,58,.1);border:2px solid #34343A}
+.av img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="top">
+    <div class="id"><span class="badge">yb<i>.</i></span><span>Yiğit Eren Büyükeren</span></div>
+    <div class="av"><img src="/assets/img/avatar.png" alt=""></div>
+  </div>
+  <h1 id="h"></h1>
+  <div class="bot"><div class="tag" id="tag"></div><div class="dom">yigitbuyukeren.com</div></div>
+</div>
+<script>
+var en=/lang=en/.test(location.search);
+document.documentElement.lang=en?'en':'tr';
+document.getElementById('h').innerHTML=en
+ ?'I take an idea<br>and turn it into<br>something that <em>works</em>.'
+ :'Fikri alır,<br><em>çalışan</em> bir şeye<br>çeviririm.';
+document.getElementById('tag').textContent=en
+ ?'Android · Mobile · macOS · Backend · Istanbul'
+ :'Android · Mobil · macOS · Sunucu · İstanbul';
+</script>
+</body>
+</html>
