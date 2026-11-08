@@ -252,7 +252,7 @@ def main():
             '<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="/assets/img/favicon-yb.png" type="image/png">\n<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">\n'
             '<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>\n'
             "<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>\n"
-            '<link rel="stylesheet" href="/assets/site.css">\n<style>{{CSS}}</style>\n</head>')
+            '<link rel="stylesheet" href="/assets/site.css?v=20261109">\n<style>{{CSS}}</style>\n</head>')
     base = {"head": head, "header": header}
     do_pdf = "--no-pdf" not in sys.argv
     for key, c in CV.items():
