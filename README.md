@@ -45,7 +45,7 @@ aile-cuzdani/                  proje sayfası ve yasal metinler
 dogum-gunu/                    canlı demo
 assets/site.css                bütün sayfaların tek stil dosyası (renkler, açık/koyu tema)
 assets/site.js                 tema düğmesi, İstanbul saati, GitHub'dan canlı bilgiler
-assets/fonts/                  Bricolage Grotesque, Geist, Geist Mono (latin + Türkçe karakterler)
+assets/fonts/                  Instrument Serif, Geist, Geist Mono (latin + Türkçe karakterler)
 assets/img/                    ekran görüntüleri, paylaşım görselleri, ikonlar
 404.html, sitemap.xml          hata sayfası ve hreflang'li site haritası
 deploy.sh                      sunucuya gönderme
