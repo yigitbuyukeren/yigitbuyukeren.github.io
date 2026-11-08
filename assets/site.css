@@ -113,7 +113,17 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 .hero h1{font-size:clamp(48px,7.6vw,108px);line-height:.94;letter-spacing:-.045em;font-weight:680;margin-bottom:28px}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:40ch;margin-bottom:32px}
-.now{grid-column:8/13;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.hero-side{grid-column:8/13;display:flex;flex-direction:column;gap:20px;min-width:0}
+.hero-portrait{display:flex;align-items:flex-end;justify-content:flex-end;gap:clamp(14px,2vw,26px);text-decoration:none;color:inherit}
+.hero-portrait-note{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding-bottom:10px;font:500 13px/1.45 var(--f-mono);letter-spacing:.02em;order:-1}
+.hero-portrait-note svg{width:21px;height:21px;margin-bottom:7px;fill:currentColor}
+.hero-portrait-note b{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.hero-portrait-note small{color:var(--muted);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.hero-portrait-frame{width:clamp(190px,20vw,300px);aspect-ratio:1;flex:none;overflow:hidden;border:1px solid var(--rule);border-radius:32px;background:radial-gradient(120% 110% at 72% 8%,var(--surface) 0%,var(--accent-soft) 100%);box-shadow:var(--shadow);transition:border-color .2s,transform .2s}
+.hero-portrait-frame img{width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.hero-portrait:hover .hero-portrait-frame{border-color:var(--ink-2);transform:translateY(-2px)}
+.hero-portrait:hover .hero-portrait-frame img{transform:scale(1.025)}
+.now{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .now-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule);font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .now-head time{color:var(--ink);letter-spacing:.02em}
 .now dl{margin:0}
@@ -127,8 +137,8 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.05;letter
 .live{display:inline-flex;align-items:center;gap:8px}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none;animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 45%,transparent)}50%{box-shadow:0 0 0 6px transparent}}
-@media (max-width:980px){.hero{grid-template-columns:1fr}.hero-text,.now{grid-column:1/-1}.now{max-width:560px}}
-@media (max-width:420px){.now-row{grid-template-columns:1fr;gap:2px}}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.hero-text,.hero-side{grid-column:1/-1}.hero-side{max-width:560px}.hero-portrait{flex-direction:column;align-items:flex-start;gap:12px}.hero-portrait-note{order:0;flex-direction:row;align-items:center;gap:8px;padding:0}.hero-portrait-note svg{width:18px;height:18px;margin:0}.hero-portrait-note small{display:none}.hero-portrait-frame{width:min(260px,68vw);border-radius:28px}}
+@media (max-width:420px){.now-row{grid-template-columns:1fr;gap:2px}.hero-side{gap:16px}}
 
 /* Cetvel şeridi */
 .ruler{height:22px;border-top:1px solid var(--rule);background:
