@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RideDeck · Motosiklet, araba ve bisiklet için sürüş paneli</title>
+<title>RideDeck · Motosiklet için sürüş paneli</title>
 <meta name="description" content="RideDeck: telefonunu gidona takınca CarPlay tarzı sürüş paneline çeviren açık kaynak Android uygulaması. Sesli navigasyon, telefon ve müzik ekranları ve isteğe bağlı SOS. Hesap yok, sunucu yok.">
 <link rel="canonical" href="https://yigitbuyukeren.com/ridedeck/">
 <link rel="alternate" hreflang="tr" href="https://yigitbuyukeren.com/ridedeck/">
 <link rel="alternate" hreflang="en" href="https://yigitbuyukeren.com/en/ridedeck/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Yiğit Eren Büyükeren">
-<meta property="og:title" content="RideDeck · Motosiklet, araba ve bisiklet için sürüş paneli">
+<meta property="og:title" content="RideDeck · Motosiklet için sürüş paneli">
 <meta property="og:description" content="Telefonunu gidona tak, CarPlay tarzı sürüş paneline çevir. Açık kaynak Android launcher; hesap yok, sunucu yok.">
 <meta property="og:url" content="https://yigitbuyukeren.com/ridedeck/">
 <meta property="og:image" content="https://yigitbuyukeren.com/assets/img/og-ridedeck.png">
@@ -41,10 +41,10 @@
 <img class="app-icon" src="/assets/img/ridedeck-logo.webp" alt="" width="72" height="72">
 <h1>RideDeck</h1>
 <p class="tagline">Telefonunu gidona tak, CarPlay tarzı sürüş paneline çevir.</p>
-<p class="lead">Motosiklet, araba ve bisiklet için açık kaynak Android launcher. Hız, harita, müzik ve telefon tek ekranda; arayüz eldivenle kullanılacak büyüklükte, sürerken yazı girişi yok. Hesap yok, anahtar yok, sunucu yok.</p>
+<p class="lead">Motosiklet için açık kaynak Android sürüş paneli. Hız, harita, müzik ve telefon tek ekranda; arayüz eldivenle kullanılacak büyüklükte, sürerken yazı girişi yok. Hesap yok, anahtar yok, sunucu yok.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Kaynak kodu ↗</a></div>
 <ul class="tags"><li>v0.5.0</li><li>Apache 2.0</li><li>Android 8+</li><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li></ul>
-<p class="caveat">İndirilebilir APK v0.5.0 (9,8 MB, 2026-11-05): alternatif rotalar, en çok 3 duraklı rota, çevrimdışı harita alanı indirme, hıza göre kamera ve sesli uyarı zamanlaması, telefon dilinde sesli yönlendirme (TR/EN). Sesli asistan ve park yeri özelliği kaldırıldı. Saha doğrulaması bekliyor.</p>
+<p class="caveat">İndirilebilir APK v0.5.0 (9,8 MB, 2026-11-05): alternatif rotalar, en çok 3 duraklı rota, çevrimdışı harita alanı indirme, telefon dilinde sesli yönlendirme (TR/EN); bu sürümde araç seçimi ve HOME seçeneği hâlâ vardır, kaza algılama yalnız uygulama ekrandayken çalışır. Bu sayfa güncel kaynak kodu (0.6.0, henüz APK olarak yayınlanmadı) anlatır: yalnız motosiklet, başlatılmış yolculukta arka planda kaza algılama, mesafeli üç kademeli anons, öncelikli ses kuyruğu, yön bilgili rota isteği. Saha doğrulaması bekliyor.</p>
 </div>
 <div class="p-hero-visual"><div class="panel-dark"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigasyon ekranı: 60 metre sonra sağa dönün" width="1600" height="720" fetchpriority="high"></div></div></div>
 </section>
@@ -52,19 +52,18 @@
 <section id="ozellikler" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>01</b> · Özellikler</span><h2>Öne çıkanlar</h2></header>
 <div class="grid3">
-<div class="tile reveal"><div class="ico" aria-hidden="true">🧭</div><h3>Sesli navigasyon</h3><p>OpenStreetMap haritası, motosiklet / araba / bisiklet rotası, ara durak, benzinlik ve şarj.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🧭</div><h3>Sesli navigasyon</h3><p>OpenStreetMap haritası, Valhalla motosiklet rotası, en çok üç ara durak, rota üzerindeki benzinlikler. Uzak uyarı mesafe söyler, dönüşte kısa "şimdi" anonsu gelir.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">💬</div><h3>Mesajları sesli oku</h3><p>Bildirimden gelen mesajlar yalnızca RideDeck ekrandayken okunur; her sohbet uygulaması ayrı kapatılabilir.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🆘</div><h3>İsteğe bağlı SOS</h3><p>Varsayılan kapalı. Sert darbe ve hareketsizlikte geri sayım, sonra konum linkli tek SMS. Eşikler sahada ayarlanmamıştır; güvenlik garantisi değildir.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🆘</div><h3>İsteğe bağlı SOS</h3><p>Varsayılan kapalı. Sert darbe, hareketsizlik ve devrilmede geri sayım, sonra konum linkli tek SMS. Başlatılmış yolculukta ekran kapalıyken de çalışır. Eşikler sahada ayarlanmamıştır; güvenlik garantisi değildir.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">🎵</div><h3>Müzik ve telefon</h3><p>Kapak kaydırma, uygulama içi rehber, tuş takımı ve arama ekranı.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🌦️</div><h3>Uyarılar</h3><p>Yağmur, buzlanma ve rüzgâr uyarısı; telefon ısınınca ekran kısılır.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🌦️</div><h3>Uyarılar</h3><p>Yağmur ve buzlanma uyarısı; telefon ısınınca ekran kısılır.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">🔒</div><h3>Gizlilik</h3><p>Veriler telefonda kalır; yalnızca ücretsiz genel harita servislerine sorgu gider.</p></div>
 </div>
 </section>
 
 <section id="ekranlar" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>02</b> · Ekranlar</span><h2>Ekran görüntüleri</h2><p>Bisiklet profilinde telefon dik de durabilir.</p></header>
+<header class="sec-head reveal"><span class="sec-no"><b>02</b> · Ekranlar</span><h2>Ekran görüntüleri</h2><p>Emülatörden alınmış yatay ekranlar; v0.5.0 arayüzü.</p></header>
 <div class="gallery">
-<figure class="reveal"><img src="/assets/img/rd-vehicle.webp" alt="İlk açılışta araç seçimi" width="1600" height="720" loading="lazy"><figcaption>İlk açılışta araç seçimi</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-dashboard.webp" alt="Ana panel: hız, navigasyon ve müzik kartları" width="1600" height="720" loading="lazy"><figcaption>Ana panel</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-route.webp" alt="Rota" width="1600" height="720" loading="lazy"><figcaption>Rota</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-fuel.webp" alt="Benzinlikler" width="1600" height="720" loading="lazy"><figcaption>Benzinlikler</figcaption></figure>
@@ -76,28 +75,30 @@
 <section id="ayrintilar" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>03</b> · Ayrıntılar</span><h2>Nasıl çalışıyor</h2></header>
 <div class="cols2">
-<div class="spec reveal"><h3>Araç profilleri</h3><ul>
-<li>İlk açılışta Motosiklet / Araba / Bisiklet seçimi; Ayarlar &gt; Kurulum'dan değişir.</li>
-<li>Rota araca göre: Valhalla motorcycle, auto veya bicycle; bisiklette yokuşsuz, düz zemin ve bisiklet tipi.</li>
-<li>⛽ düğmesi: motosiklette benzinlik, arabada benzinlik ve şarj, bisiklette tamir noktası, dükkân ve içme suyu.</li>
-<li>Kaza algılama eşikleri ve hız göstergesi ölçeği araca göre; bisiklette dik ekran desteği.</li>
+<div class="spec reveal"><h3>Motosiklet için</h3><ul>
+<li>Araç seçimi yok: rota Valhalla motorcycle, benzinlik araması, kaza eşikleri ve 200 km/sa'lik gösterge motosiklete sabit.</li>
+<li>Yatay gidon düzeni; dock solda, hız kartı sabit, iki kart yuvası (harita, müzik, uygulama) ayarlanabilir.</li>
+<li>İlk açılışta yalnız konum izni istenir; telefon, müzik ve SOS izinleri ilgili özellik açılırken sorulur.</li>
+<li>Kaza algılama: sert darbe + hareketsizlik + telefonun devrilmesi (çukur ve kırmızı ışık ayrımı). Başlatılmış yolculukta ekran kapalıyken de çalışır; geri sayım tam ekran bildirimle öne gelir.</li>
 </ul></div>
 <div class="spec reveal"><h3>Navigasyon</h3><ul>
 <li>MapLibre + OpenStreetMap (OpenFreeMap), Nominatim arama, Valhalla rota, rota dışına çıkınca yeniden hesaplama.</li>
 <li>Otoyolsuz ve ücretsiz yol seçenekleri; kayıtlı yerler (Ev, İş, favoriler) ve "Eve git".</li>
-<li>Güncel kaynak kodda en fazla üç ara durakla rota planlanır, alternatif rotalar seçilebilir; çevrimdışı harita alanı indirilebilir. Rota hesabı ve adres araması internet gerektirir.</li>
+<li>En fazla üç ara durak, alternatif rotalar, çevrimdışı harita alanı indirme. Duraklar benzinlik sapmasında, yol tercihi değişiminde ve uygulama kapanıp açılınca korunur. Rota hesabı ve adres araması internet gerektirir; internet yokken yeniden hesaplama yapılamazsa bir kez söylenir ve eski rota izlenir.</li>
+<li>Anons üç kademe: "800 metre sonra sağa dön", tam talimat, dönüşte kısa "şimdi"; uzun yolda "2 km devam". Mesaj ve hava uyarıları dönüş talimatını kesmez. Rota isteği sürüş yönünü taşır, U dönüşüyle başlamaz.</li>
+<li>Varış: rota sonunda, hedefte durunca veya kapalı otoparkta GPS kesilince; varış saati gerçek hıza uyum sağlar.</li>
 <li>Sesli yönlendirme Android'in metin okuma motorunu kullanır ve telefon diline uyar: Türkçe telefonda Türkçe, diğerlerinde İngilizce. Sesli komut veya konuşma tanıma yoktur.</li>
-<li>Yolun hız limiti ve aşınca sesli uyarı; sürerken arama kutusu kilitlenir.</li>
+<li>Yolun hız limiti ve aşınca sesli uyarı; sürerken arama kutusu, tuş takımı ve Ayarlar kilitlenir (kilit GPS gürültüsüne değil hareket durumuna bakar).</li>
 </ul></div>
 <div class="spec reveal"><h3>Güvenlik</h3><ul>
-<li>Hava durumu: sıcaklık, 1 saat içinde yağmur ve buzlanma uyarısı, bisiklette sert rüzgâr.</li>
-<li>Isınma koruması: telefon 42°C'yi aşınca ekran kısılır, araç durunca kararır.</li>
-<li>SOS (varsayılan kapalı): otomatik kaza algılama veya uzun basmalı düğme; geri sayımdan sonra en fazla 3 kişiye konum linkli tek SMS, arama yok. Yalnızca uygulama ekrandayken çalışır.</li>
+<li>Hava durumu: sıcaklık, 1 saat içinde yağmur ve buzlanma uyarısı.</li>
+<li>Isınma koruması: telefon 42°C'yi aşınca ekran kısılır, motosiklet bir dakika durunca kararır.</li>
+<li>SOS (varsayılan kapalı): otomatik kaza algılama veya uzun basmalı düğme; geri sayımdan sonra en fazla 3 kişiye konum linkli tek SMS, arama yok. Uygulama ekrandayken veya başlatılmış yolculuk sürerken çalışır.</li>
 </ul></div>
 <div class="spec reveal"><h3>Telefon ve medya</h3><ul>
-<li>Uygulama içi telefon: son aramalar, rehber ve tuş takımı; sürerken tuş takımı kilitli.</li>
+<li>Uygulama içi telefon: son aramalar, rehber ve tuş takımı; sürerken tuş takımı kilitli. Görüşme sırasında dönüş talimatı yerine titreşim, görüşme bitince talimat okunur.</li>
 <li>Müzik: ilerleme çubuğu, kapağı kaydırarak şarkı geçme, ses tuşları.</li>
-<li>Diğer uygulamaların üstünde hız/saat şeridi; ana ekran (HOME) launcher olarak ayarlanabilir.</li>
+<li>Diğer uygulamaların üstünde hız/saat şeridi.</li>
 </ul></div>
 </div>
 </section>
@@ -107,8 +108,8 @@
 <div class="cols2">
 <div class="spec reveal"><h3>Üç adımda kurulum</h3><ol>
 <li>Son sürümün <a class="link" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK'sını indir</a> ve kur (bilinmeyen kaynaklardan kuruluma izin ver).</li>
-<li>İlk açılışta aracını seç; istersen ana ekran (HOME) uygulaması yap.</li>
-<li>Müzik ve mesaj okuma için Ayarlar &gt; Kurulum'dan bildirim erişimini ver.</li>
+<li>İlk açılışta yalnız konum iznini ver; diğer izinler ilgili özelliği açarken sorulur.</li>
+<li>Müzik ve mesaj okuma için Ayarlar &gt; İzinler ve sistem'den bildirim erişimini ver.</li>
 </ol></div>
 <div class="spec reveal"><h3>Gizlilik</h3><p style="color:var(--ink-2);margin:0">Hesap ve sunucu yok; veriler telefonda kalır. Dışarı giden tek şey genel servislere giden sorgulardır: arama metni (Nominatim), rota ve hız limiti (Valhalla), yaklaşık konum (hava durumu için Open-Meteo), benzinlik sorgusu (Nominatim / Overpass). SOS yalnızca sen açarsan çalışır ve SMS izni ister.</p></div>
 </div>

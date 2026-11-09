@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RideDeck · A riding dashboard for motorcycles, cars and bikes</title>
+<title>RideDeck · A riding dashboard for motorcycles</title>
 <meta name="description" content="RideDeck: an open-source Android app that turns the phone on your handlebars into a CarPlay-style riding dashboard. Voice navigation, phone and music screens, optional SOS. No accounts, no servers.">
 <link rel="canonical" href="https://yigitbuyukeren.com/en/ridedeck/">
 <link rel="alternate" hreflang="tr" href="https://yigitbuyukeren.com/ridedeck/">
 <link rel="alternate" hreflang="en" href="https://yigitbuyukeren.com/en/ridedeck/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Yiğit Eren Büyükeren">
-<meta property="og:title" content="RideDeck · A riding dashboard for motorcycles, cars and bikes">
+<meta property="og:title" content="RideDeck · Riding dashboard for motorcycles">
 <meta property="og:description" content="Mount your phone on the handlebars and turn it into a CarPlay-style riding dashboard. Open-source Android launcher; no accounts, no servers.">
 <meta property="og:url" content="https://yigitbuyukeren.com/en/ridedeck/">
 <meta property="og:image" content="https://yigitbuyukeren.com/assets/img/og-ridedeck.png">
@@ -41,10 +41,10 @@
 <img class="app-icon" src="/assets/img/ridedeck-logo.webp" alt="" width="72" height="72">
 <h1>RideDeck</h1>
 <p class="tagline">Mount your phone on the handlebars and turn it into a CarPlay-style riding dashboard.</p>
-<p class="lead">An open-source Android launcher for motorcycles, cars and bicycles. Speed, map, music and phone on one screen; glove-sized controls and no typing while riding. No accounts, no keys, no servers.</p>
+<p class="lead">An open-source Android riding dashboard for motorcycles. Speed, map, music and phone on one screen; glove-sized controls and no typing while riding. No accounts, no keys, no servers.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">Download APK <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Source code ↗</a></div>
 <ul class="tags"><li>v0.5.0</li><li>Apache 2.0</li><li>Android 8+</li><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li></ul>
-<p class="caveat">The downloadable APK is v0.5.0 (9.8 MB, 2026-11-05): alternative routes, up to 3 stops, offline map area download, speed-aware camera and voice timing, spoken guidance in the phone language (TR/EN). The voice assistant and parking spot were removed. Field verification is pending.</p>
+<p class="caveat">The downloadable APK is v0.5.0 (9.8 MB, 2026-11-05): alternative routes, up to 3 stops, offline map area download, spoken guidance in the phone language (TR/EN); that build still has the vehicle choice and the HOME option, and crash detection runs only while the app is on screen. This page describes the current source (0.6.0, not yet released as an APK): motorcycle only, background crash detection during a started ride, three-stage prompts with distances, a prioritised speech queue and heading-aware routing. Field verification is pending.</p>
 </div>
 <div class="p-hero-visual"><div class="panel-dark"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigation: turn right in 60 metres" width="1600" height="720" fetchpriority="high"></div></div></div>
 </section>
@@ -52,19 +52,18 @@
 <section id="features" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>01</b> · Features</span><h2>Highlights</h2></header>
 <div class="grid3">
-<div class="tile reveal"><div class="ico" aria-hidden="true">🧭</div><h3>Voice navigation</h3><p>OpenStreetMap map, motorcycle / car / bicycle routing, waypoints, fuel and charging stops.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🧭</div><h3>Voice navigation</h3><p>OpenStreetMap map, Valhalla motorcycle routing, up to three stops, fuel stations along the route. The far warning says the distance and a short "now" cue comes at the turn.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">💬</div><h3>Messages read aloud</h3><p>Notification messages are read only while RideDeck is on screen; each chat app can be muted separately.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🆘</div><h3>Optional SOS</h3><p>Off by default. Countdown after a hard impact and no movement, then a single SMS with your location link. Thresholds are not field-tuned; not a safety guarantee.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🆘</div><h3>Optional SOS</h3><p>Off by default. Countdown after a hard impact, stillness and a tipped-over phone, then a single SMS with your location link. Keeps running with the screen off during a started ride. Thresholds are not field-tuned; not a safety guarantee.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">🎵</div><h3>Music and phone</h3><p>Cover swipe, in-app contacts, dial pad and call screen.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🌦️</div><h3>Alerts</h3><p>Rain, ice and wind alerts; the screen dims when the phone overheats.</p></div>
+<div class="tile reveal"><div class="ico" aria-hidden="true">🌦️</div><h3>Alerts</h3><p>Rain and ice alerts; the screen dims when the phone overheats.</p></div>
 <div class="tile reveal"><div class="ico" aria-hidden="true">🔒</div><h3>Privacy</h3><p>Data stays on the phone; only queries to free public map services leave it.</p></div>
 </div>
 </section>
 
 <section id="screens" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>02</b> · Screens</span><h2>Screenshots</h2><p>On the bicycle profile the phone can also stand upright.</p></header>
+<header class="sec-head reveal"><span class="sec-no"><b>02</b> · Screens</span><h2>Screenshots</h2><p>Landscape screens from an emulator; the v0.5.0 interface.</p></header>
 <div class="gallery">
-<figure class="reveal"><img src="/assets/img/rd-vehicle.webp" alt="Vehicle choice on first launch" width="1600" height="720" loading="lazy"><figcaption>Vehicle choice on first launch</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-dashboard.webp" alt="Main dashboard: speed, navigation and music cards" width="1600" height="720" loading="lazy"><figcaption>Main dashboard</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-route.webp" alt="Route" width="1600" height="720" loading="lazy"><figcaption>Route</figcaption></figure>
 <figure class="reveal"><img src="/assets/img/rd-fuel.webp" alt="Fuel stops" width="1600" height="720" loading="lazy"><figcaption>Fuel stops</figcaption></figure>
@@ -76,28 +75,30 @@
 <section id="details" class="section wrap">
 <header class="sec-head reveal"><span class="sec-no"><b>03</b> · Details</span><h2>How it works</h2></header>
 <div class="cols2">
-<div class="spec reveal"><h3>Vehicle profiles</h3><ul>
-<li>Motorcycle / Car / Bicycle choice on first launch; changeable under Settings &gt; Setup.</li>
-<li>Vehicle-aware routing via Valhalla motorcycle, auto or bicycle; flat-terrain and bike-type options for cycling.</li>
-<li>⛽ button: fuel for motorcycles, fuel and charging for cars, repair points, shops and drinking water for bikes.</li>
-<li>Crash-detection thresholds and speedometer scale per vehicle; portrait support on bicycles.</li>
+<div class="spec reveal"><h3>Built for motorcycles</h3><ul>
+<li>No vehicle choice: Valhalla motorcycle routing, fuel search, crash thresholds and the 200 km/h dial are fixed for a motorcycle.</li>
+<li>Landscape handlebar layout; dock on the left, fixed speed card, two configurable card slots (map, music, apps).</li>
+<li>First launch asks for location only; phone, music and SOS permissions are requested where each feature is switched on.</li>
+<li>Crash detection: hard impact + stillness + the phone tipping over (so potholes and red lights stay quiet). Runs with the screen off during a started ride; the countdown comes to the front as a full-screen notification.</li>
 </ul></div>
 <div class="spec reveal"><h3>Navigation</h3><ul>
 <li>MapLibre + OpenStreetMap (OpenFreeMap), Nominatim search, Valhalla routing, automatic re-route.</li>
 <li>Avoid highways and tolls; saved places (Home, Work, favorites) and "Go home".</li>
-<li>The current source supports up to three route stops, alternative routes and downloadable map areas. Routing and address search still require an internet connection.</li>
+<li>Up to three stops, alternative routes, downloadable map areas. Stops survive a fuel detour, a road-preference change and an app restart. Routing and address search need internet; if a re-route fails offline you are told once and guidance follows the old route.</li>
+<li>Three-stage prompts: "in 800 metres, turn right", the full instruction, a short "now" at the turn; "continue for 2 km" on long stretches. Messages and weather alerts never cut a turn instruction. Route requests carry your heading, so they do not start with a U-turn.</li>
+<li>Arrival at the end of the route, when you stop at the door, or when GPS is lost in a covered car park; the ETA follows your actual pace.</li>
 <li>Spoken guidance uses Android's text-to-speech and follows the phone language: Turkish on a Turkish phone, English otherwise. There are no voice commands or speech recognition.</li>
-<li>Speed-limit display and spoken warning; the search box locks while riding.</li>
+<li>Speed-limit display and spoken warning; the search box, dial pad and settings lock while riding (the lock reads a motion state, not raw GPS noise).</li>
 </ul></div>
 <div class="spec reveal"><h3>Safety</h3><ul>
-<li>Weather: temperature, rain and ice alerts within an hour, strong wind on bikes.</li>
-<li>Heat protection: the screen dims above 42°C and goes dark when stopped.</li>
-<li>SOS (off by default): automatic crash detection or long-press button; after the countdown, one SMS with your location to up to 3 contacts, no calls. It only runs while the app is on screen.</li>
+<li>Weather: temperature, rain and ice alerts within an hour.</li>
+<li>Heat protection: the screen dims above 42°C and goes dark after a minute at a standstill.</li>
+<li>SOS (off by default): automatic crash detection or long-press button; after the countdown, one SMS with your location to up to 3 contacts, no calls. Runs while the app is on screen or a started ride is active.</li>
 </ul></div>
 <div class="spec reveal"><h3>Phone and media</h3><ul>
-<li>In-app phone: recent calls, contacts and dial pad; the dial pad is locked while riding.</li>
+<li>In-app phone: recent calls, contacts and dial pad; the dial pad is locked while riding. During a call a turn instruction becomes a vibration and is read once the call ends.</li>
 <li>Music: progress bar, swipe the cover to skip, volume keys.</li>
-<li>Speed/clock strip over other apps; can be set as the HOME launcher.</li>
+<li>Speed/clock strip over other apps.</li>
 </ul></div>
 </div>
 </section>
@@ -107,8 +108,8 @@
 <div class="cols2">
 <div class="spec reveal"><h3>Three steps</h3><ol>
 <li><a class="link" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">Download the APK</a> from the latest release and install it (allow unknown sources).</li>
-<li>Pick your vehicle on first launch; optionally make it the HOME app.</li>
-<li>Grant notification access under Settings &gt; Setup for music and message reading.</li>
+<li>Grant the location permission on first launch; the other permissions are asked for where each feature is switched on.</li>
+<li>Grant notification access under Settings &gt; Permissions and system for music and message reading.</li>
 </ol></div>
 <div class="spec reveal"><h3>Privacy</h3><p style="color:var(--ink-2);margin:0">No accounts or servers; data stays on the phone. The only things that leave it are queries to public services: search text (Nominatim), route and speed limit (Valhalla), approximate location for weather (Open-Meteo), fuel queries (Nominatim / Overpass). SOS only runs if you enable it and asks for SMS permission.</p></div>
 </div>
