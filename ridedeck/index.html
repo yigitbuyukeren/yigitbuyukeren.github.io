@@ -4,136 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RideDeck · Motosiklet, araba ve bisiklet için sürüş paneli</title>
-<meta name="description" content="RideDeck: telefonunu gidona takınca CarPlay tarzı sürüş paneline çeviren açık kaynak Android uygulaması. Sesli navigasyon, telefon ve müzik ekranları ve isteğe bağlı SOS. Hesap yok, sunucu yok.">
+<meta name="description" content="RideDeck: telefonu gidona takınca CarPlay tarzı sürüş paneline çeviren açık kaynak Android uygulaması. Sesli navigasyon, müzik, telefon; hesap ve sunucu yok.">
 <link rel="canonical" href="https://yigitbuyukeren.com/ridedeck/">
 <link rel="alternate" hreflang="tr" href="https://yigitbuyukeren.com/ridedeck/">
 <link rel="alternate" hreflang="en" href="https://yigitbuyukeren.com/en/ridedeck/">
+<link rel="alternate" hreflang="x-default" href="https://yigitbuyukeren.com/ridedeck/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Yiğit Eren Büyükeren">
 <meta property="og:title" content="RideDeck · Motosiklet, araba ve bisiklet için sürüş paneli">
-<meta property="og:description" content="Telefonunu gidona tak, CarPlay tarzı sürüş paneline çevir. Açık kaynak Android launcher; hesap yok, sunucu yok.">
+<meta property="og:description" content="RideDeck: telefonu gidona takınca CarPlay tarzı sürüş paneline çeviren açık kaynak Android uygulaması. Sesli navigasyon, müzik, telefon; hesap ve sunucu yok.">
 <meta property="og:url" content="https://yigitbuyukeren.com/ridedeck/">
 <meta property="og:image" content="https://yigitbuyukeren.com/assets/img/og-ridedeck.png">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F7F7F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0A0A0B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/assets/img/ridedeck-logo.webp" type="image/webp">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="/assets/site.css?v=20261110">
+<link rel="stylesheet" href="/assets/site.css?v=20261109m">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"RideDeck","applicationCategory":"NavigationApplication","operatingSystem":"Android 8.0+","softwareVersion":"0.5.0","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"license":"https://www.apache.org/licenses/LICENSE-2.0","downloadUrl":"https://github.com/yigitbuyukeren/ridedeck/releases/latest","codeRepository":"https://github.com/yigitbuyukeren/ridedeck","screenshot":"https://yigitbuyukeren.com/assets/img/rd-navigation.webp","author":{"@id":"https://yigitbuyukeren.com/#me","@type":"Person","name":"Yiğit Eren Büyükeren","url":"https://yigitbuyukeren.com/"}}</script>
 </head>
-<body>
+<body class="page-project">
 <a class="skip" href="#main">İçeriğe geç</a>
-<header class="site-head sys"><div class="wrap">
-<a class="mark" href="/"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-name-long">Eren </span>Büyükeren</span></a>
-<nav class="site-nav" aria-label="Sayfa bölümleri"><a href="#ozellikler"><span aria-hidden="true">01</span>Özellikler</a><a href="#ekranlar"><span aria-hidden="true">02</span>Ekranlar</a><a href="#ayrintilar"><span aria-hidden="true">03</span>Ayrıntılar</a><a href="#kurulum"><span aria-hidden="true">04</span>Kurulum</a></nav>
-<div class="head-tools"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="lbl-open">Menü</span><span class="lbl-close">Kapat</span><span class="menu-ico" aria-hidden="true"></span></button><button class="icon-btn" id="theme" type="button" aria-label="Açık ya da koyu tema"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="icon-btn" href="/en/ridedeck/" hreflang="en" lang="en" aria-label="EN, English">EN</a></div>
+<header class="site-head"><div class="wrap">
+<a class="mark" href="/"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-long">Eren </span>Büyükeren</span></a>
+<nav class="site-nav" aria-label="Bölümler"><a href="/#projeler">Projeler</a><a href="/#hakkimda">Hakkımda</a><a href="/#iletisim">İletişim</a><a href="/cv/">CV</a></nav>
+<div class="head-tools"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="lbl-open vh">Menü</span><span class="lbl-close vh">Kapat</span><span class="menu-ico" aria-hidden="true"></span></button><button class="icon-btn" id="theme" type="button" aria-label="Açık ya da koyu tema"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="icon-btn" href="/en/ridedeck/" hreflang="en" lang="en" aria-label="EN, English">EN</a></div>
 </div></header>
-<div class="menu" id="menu" hidden><nav aria-label="Sayfa bölümleri"><a href="#ozellikler"><span aria-hidden="true">01</span>Özellikler</a><a href="#ekranlar"><span aria-hidden="true">02</span>Ekranlar</a><a href="#ayrintilar"><span aria-hidden="true">03</span>Ayrıntılar</a><a href="#kurulum"><span aria-hidden="true">04</span>Kurulum</a></nav></div>
+<div class="menu" id="menu" hidden><nav aria-label="Bölümler"><a href="/#projeler">Projeler</a><a href="/#hakkimda">Hakkımda</a><a href="/#iletisim">İletişim</a><a href="/cv/">CV</a></nav></div>
 
 <main id="main">
-<section class="p-hero wrap">
-<div class="p-hero-text">
-<p class="crumbs"><a href="/">Ana sayfa</a><span aria-hidden="true">/</span><a href="/#projeler">İşler</a><span aria-hidden="true">/</span><span lang="en">RideDeck</span></p>
-<img class="app-icon" src="/assets/img/ridedeck-logo.webp" alt="" width="72" height="72">
+<section class="hero wrap">
+<p class="proj-back"><a href="/#projeler">← Projeler</a></p>
+<img class="proj-icon" src="/assets/img/ridedeck-logo.webp" alt="" width="72" height="72">
 <h1>RideDeck</h1>
-<p class="tagline">Telefonunu gidona tak, CarPlay tarzı sürüş paneline çevir.</p>
+<p class="lead"><strong>Telefonunu gidona tak, CarPlay tarzı sürüş paneline çevir.</strong></p>
 <p class="lead">Motosiklet, araba ve bisiklet için açık kaynak Android launcher. Hız, harita, müzik ve telefon tek ekranda; arayüz eldivenle kullanılacak büyüklükte, sürerken yazı girişi yok. Hesap yok, anahtar yok, sunucu yok.</p>
-<div class="actions"><a class="btn primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Kaynak kodu ↗</a></div>
+<div class="actions"><a class="btn btn-primary" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">Kaynak kodu ↗</a></div>
+<div class="card proj-figures">
 <dl class="figures">
 <div><dt>birim testleri</dt><dd>JUnit</dd></div>
 <div><dt>araç profili</dt><dd>3</dd></div>
 <div><dt>son APK sürümü</dt><dd>0.5.0</dd></div>
 <div><dt>lisans</dt><dd>Apache 2.0</dd></div>
 </dl>
+</div>
 <ul class="tags"><li>v0.5.0</li><li>Apache 2.0</li><li>Android 8+</li><li>Kotlin</li><li>Jetpack Compose</li><li>MapLibre</li><li>OpenStreetMap</li><li>Valhalla</li></ul>
 <p class="caveat">İndirilebilir APK v0.5.0 (9,8 MB, 2026-11-05): alternatif rotalar, en çok 3 duraklı rota, çevrimdışı harita alanı indirme, hıza göre kamera ve sesli uyarı zamanlaması, telefon dilinde sesli yönlendirme (TR/EN). Sesli asistan ve park yeri özelliği kaldırıldı. Saha doğrulaması bekliyor.</p>
-</div>
-<div class="p-hero-visual"><div class="panel-dark"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigasyon ekranı: 60 metre sonra sağa dönün" width="1600" height="720" fetchpriority="high"></div></div></div>
-</section>
-
-<section id="ozellikler" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>01</b> · Özellikler</span><h2>Öne çıkanlar</h2></header>
-<div class="grid3 index-rows">
-<div class="tile reveal"><div class="ico" aria-hidden="true">🧭</div><h3>Sesli navigasyon</h3><p>OpenStreetMap haritası, motosiklet / araba / bisiklet rotası, ara durak, benzinlik ve şarj.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">💬</div><h3>Mesajları sesli oku</h3><p>Bildirimden gelen mesajlar yalnızca RideDeck ekrandayken okunur; her sohbet uygulaması ayrı kapatılabilir.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🆘</div><h3>İsteğe bağlı SOS</h3><p>Varsayılan kapalı. Sert darbe ve hareketsizlikte geri sayım, sonra konum linkli tek SMS. Eşikler sahada ayarlanmamıştır; güvenlik garantisi değildir.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🎵</div><h3>Müzik ve telefon</h3><p>Kapak kaydırma, uygulama içi rehber, tuş takımı ve arama ekranı.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🌦️</div><h3>Uyarılar</h3><p>Yağmur, buzlanma ve rüzgâr uyarısı; telefon ısınınca ekran kısılır.</p></div>
-<div class="tile reveal"><div class="ico" aria-hidden="true">🔒</div><h3>Gizlilik</h3><p>Veriler telefonda kalır; yalnızca ücretsiz genel harita servislerine sorgu gider.</p></div>
-</div>
 </section>
 
 <section id="ekranlar" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>02</b> · Ekranlar</span><h2>Ekran görüntüleri</h2><p>Bisiklet profilinde telefon dik de durabilir.</p></header>
+<header class="sec-head reveal"><h2>Ekran görüntüleri</h2><p>Bisiklet profilinde telefon dik de durabilir.</p></header>
 <div class="gallery" tabindex="0" role="group" aria-label="Ekran görüntüleri">
-<figure class="reveal"><img src="/assets/img/rd-vehicle.webp" alt="İlk açılışta araç seçimi" width="1600" height="720" loading="lazy"><figcaption>İlk açılışta araç seçimi</figcaption></figure>
-<figure class="reveal"><img src="/assets/img/rd-dashboard.webp" alt="Ana panel: hız, navigasyon ve müzik kartları" width="1600" height="720" loading="lazy"><figcaption>Ana panel</figcaption></figure>
-<figure class="reveal"><img src="/assets/img/rd-route.webp" alt="Rota" width="1600" height="720" loading="lazy"><figcaption>Rota</figcaption></figure>
-<figure class="reveal"><img src="/assets/img/rd-fuel.webp" alt="Benzinlikler" width="1600" height="720" loading="lazy"><figcaption>Benzinlikler</figcaption></figure>
-<figure class="reveal"><img src="/assets/img/rd-sos.webp" alt="SOS geri sayımı" width="1600" height="720" loading="lazy"><figcaption>SOS geri sayımı</figcaption></figure>
-<figure class="reveal"><img src="/assets/img/rd-settings-safety.webp" alt="Güvenlik ayarları" width="1600" height="720" loading="lazy"><figcaption>Güvenlik ayarları</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-navigation.webp" alt="RideDeck navigasyon ekranı: 60 metre sonra sağa dönün" width="1600" height="720" loading="lazy"></div><figcaption>Navigasyon</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-vehicle.webp" alt="İlk açılışta araç seçimi" width="1600" height="720" loading="lazy"></div><figcaption>İlk açılışta araç seçimi</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-dashboard.webp" alt="Ana panel: hız, navigasyon ve müzik kartları" width="1600" height="720" loading="lazy"></div><figcaption>Ana panel</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-route.webp" alt="Rota" width="1600" height="720" loading="lazy"></div><figcaption>Rota</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-fuel.webp" alt="Benzinlikler" width="1600" height="720" loading="lazy"></div><figcaption>Benzinlikler</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-sos.webp" alt="SOS geri sayımı" width="1600" height="720" loading="lazy"></div><figcaption>SOS geri sayımı</figcaption></figure>
+<figure class="reveal"><div class="screen"><img src="/assets/img/rd-settings-safety.webp" alt="Güvenlik ayarları" width="1600" height="720" loading="lazy"></div><figcaption>Güvenlik ayarları</figcaption></figure>
+</div>
+</section>
+
+<section id="ozellikler" class="section wrap">
+<header class="sec-head reveal"><h2>Öne çıkanlar</h2></header>
+<div class="proj-read reveal">
+<h3>Sesli navigasyon</h3>
+<p>OpenStreetMap haritası, motosiklet / araba / bisiklet rotası, ara durak, benzinlik ve şarj.</p>
+<h3>Mesajları sesli oku</h3>
+<p>Bildirimden gelen mesajlar yalnızca RideDeck ekrandayken okunur; her sohbet uygulaması ayrı kapatılabilir.</p>
+<h3>İsteğe bağlı SOS</h3>
+<p>Varsayılan kapalı. Sert darbe ve hareketsizlikte geri sayım, sonra konum linkli tek SMS. Eşikler sahada ayarlanmamıştır; güvenlik garantisi değildir.</p>
+<h3>Müzik ve telefon</h3>
+<p>Kapak kaydırma, uygulama içi rehber, tuş takımı ve arama ekranı.</p>
+<h3>Uyarılar</h3>
+<p>Yağmur, buzlanma ve rüzgâr uyarısı; telefon ısınınca ekran kısılır.</p>
+<h3>Gizlilik</h3>
+<p>Veriler telefonda kalır; yalnızca ücretsiz genel harita servislerine sorgu gider.</p>
 </div>
 </section>
 
 <section id="ayrintilar" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>03</b> · Ayrıntılar</span><h2>Nasıl çalışıyor</h2></header>
-<div class="cols2">
-<div class="spec reveal"><h3>Araç profilleri</h3><ul>
+<header class="sec-head reveal"><h2>Nasıl çalışıyor</h2></header>
+<div class="proj-read reveal">
+<h3>Araç profilleri</h3>
+<ul>
 <li>İlk açılışta Motosiklet / Araba / Bisiklet seçimi; Ayarlar &gt; Kurulum'dan değişir.</li>
 <li>Rota araca göre: Valhalla motorcycle, auto veya bicycle; bisiklette yokuşsuz, düz zemin ve bisiklet tipi.</li>
 <li>⛽ düğmesi: motosiklette benzinlik, arabada benzinlik ve şarj, bisiklette tamir noktası, dükkân ve içme suyu.</li>
 <li>Kaza algılama eşikleri ve hız göstergesi ölçeği araca göre; bisiklette dik ekran desteği.</li>
-</ul></div>
-<div class="spec reveal"><h3>Navigasyon</h3><ul>
+</ul>
+<h3>Navigasyon</h3>
+<ul>
 <li>MapLibre + OpenStreetMap (OpenFreeMap), Nominatim arama, Valhalla rota, rota dışına çıkınca yeniden hesaplama.</li>
 <li>Otoyolsuz ve ücretsiz yol seçenekleri; kayıtlı yerler (Ev, İş, favoriler) ve "Eve git".</li>
 <li>Güncel kaynak kodda en fazla üç ara durakla rota planlanır, alternatif rotalar seçilebilir; çevrimdışı harita alanı indirilebilir. Rota hesabı ve adres araması internet gerektirir.</li>
 <li>Sesli yönlendirme Android'in metin okuma motorunu kullanır ve telefon diline uyar: Türkçe telefonda Türkçe, diğerlerinde İngilizce. Sesli komut veya konuşma tanıma yoktur.</li>
 <li>Yolun hız limiti ve aşınca sesli uyarı; sürerken arama kutusu kilitlenir.</li>
-</ul></div>
-<div class="spec reveal"><h3>Güvenlik</h3><ul>
+</ul>
+<h3>Güvenlik</h3>
+<ul>
 <li>Hava durumu: sıcaklık, 1 saat içinde yağmur ve buzlanma uyarısı, bisiklette sert rüzgâr.</li>
 <li>Isınma koruması: telefon 42°C'yi aşınca ekran kısılır, araç durunca kararır.</li>
 <li>SOS (varsayılan kapalı): otomatik kaza algılama veya uzun basmalı düğme; geri sayımdan sonra en fazla 3 kişiye konum linkli tek SMS, arama yok. Yalnızca uygulama ekrandayken çalışır.</li>
-</ul></div>
-<div class="spec reveal"><h3>Telefon ve medya</h3><ul>
+</ul>
+<h3>Telefon ve medya</h3>
+<ul>
 <li>Uygulama içi telefon: son aramalar, rehber ve tuş takımı; sürerken tuş takımı kilitli.</li>
 <li>Müzik: ilerleme çubuğu, kapağı kaydırarak şarkı geçme, ses tuşları.</li>
 <li>Diğer uygulamaların üstünde hız/saat şeridi; ana ekran (HOME) launcher olarak ayarlanabilir.</li>
-</ul></div>
+</ul>
 </div>
 </section>
 
 <section id="kurulum" class="section wrap">
-<header class="sec-head reveal"><span class="sec-no"><b>04</b> · Kurulum</span><h2>Kurulum ve gizlilik</h2></header>
-<div class="cols2">
-<div class="spec reveal"><h3>Üç adımda kurulum</h3><ol>
+<header class="sec-head reveal"><h2>Kurulum ve gizlilik</h2></header>
+<div class="proj-read reveal">
+<h3>Üç adımda kurulum</h3>
+<ol>
 <li>Son sürümün <a class="link" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK'sını indir</a> ve kur (bilinmeyen kaynaklardan kuruluma izin ver).</li>
 <li>İlk açılışta aracını seç; istersen ana ekran (HOME) uygulaması yap.</li>
 <li>Müzik ve mesaj okuma için Ayarlar &gt; Kurulum'dan bildirim erişimini ver.</li>
-</ol></div>
-<div class="spec reveal"><h3>Gizlilik</h3><p>Hesap ve sunucu yok; veriler telefonda kalır. Dışarı giden tek şey genel servislere giden sorgulardır: arama metni (Nominatim), rota ve hız limiti (Valhalla), yaklaşık konum (hava durumu için Open-Meteo), benzinlik sorgusu (Nominatim / Overpass). SOS yalnızca sen açarsan çalışır ve SMS izni ister.</p></div>
+</ol>
+<h3>Gizlilik</h3>
+<p>Hesap ve sunucu yok; veriler telefonda kalır. Dışarı giden tek şey genel servislere giden sorgulardır: arama metni (Nominatim), rota ve hız limiti (Valhalla), yaklaşık konum (hava durumu için Open-Meteo), benzinlik sorgusu (Nominatim / Overpass). SOS yalnızca sen açarsan çalışır ve SMS izni ister.</p>
+<p class="caveat"><b>Dikkat:</b> Bu uygulama sürüş sırasında dikkat dağıtabilir. Telefonu sabitle, ayarları park halindeyken yap ve trafik kurallarına uy. Yazılım garantisiz sunulur.</p>
 </div>
-<p class="callout warn reveal"><span aria-hidden="true">⚠</span><span><b>Dikkat:</b> Bu uygulama sürüş sırasında dikkat dağıtabilir. Telefonu sabitle, ayarları park halindeyken yap ve trafik kurallarına uy. Yazılım garantisiz sunulur.</span></p>
 
-<div class="band reveal">
+<div class="card proj-band reveal">
 <div><h2>Katkıya açık</h2><p>Issue ve PR'lar açık: yeni dil çevirileri, çevrimdışı rota ve arama, tablet düzenleri.</p></div>
-<div class="actions"><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir ↓</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck">GitHub ↗</a><a class="btn ghost" href="https://github.com/yigitbuyukeren/ridedeck/blob/main/docs/CASE-STUDY.md">Teknik vaka analizi ↗</a></div>
+<div class="actions"><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck/releases/latest">APK indir ↓</a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck">GitHub ↗</a><a class="btn" href="https://github.com/yigitbuyukeren/ridedeck/blob/main/docs/CASE-STUDY.md">Teknik vaka analizi ↗</a></div>
 </div>
 </section>
-<div class="page-end" aria-hidden="true"></div>
 </main>
 
 <footer class="site-foot"><div class="wrap">
-<span>© <span id="y">2026</span> Yiğit Eren Büyükeren · RideDeck, Apache 2.0 lisanslı açık kaynak yazılımdır.</span>
-<nav aria-label="Alt bağlantılar"><a href="/">Ana sayfa</a><a href="https://github.com/yigitbuyukeren/ridedeck">GitHub</a><a href="/en/ridedeck/" hreflang="en" lang="en">English</a></nav>
-</div>
-<div class="wrap wm"><div class="wordmark" aria-hidden="true"><span>Yiğit Büyükeren</span></div></div></footer>
+<span>© <span id="y">2026</span> Yiğit Eren Büyükeren · Framework'süz HTML ve CSS, kendi sunucumda Caddy ile yayında. İzleyici ve reklam yok. RideDeck, Apache 2.0 lisanslı açık kaynak yazılımdır.</span>
+<nav aria-label="Alt bağlantılar"><a href="https://github.com/yigitbuyukeren">GitHub</a><a href="/cv/">CV</a><a href="/en/">English</a><a href="/aile-cuzdani/gizlilik/">Aile Cüzdanı gizlilik</a></nav>
+</div></footer>
 <script src="/assets/site.js?v=20261110" defer></script>
 </body>
 </html>
