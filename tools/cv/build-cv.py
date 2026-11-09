@@ -165,27 +165,7 @@ def print_html(c):
 <h2>{E(H(c,'edu'))}</h2><div class="ed">{ed}</div><p class="note">{E(c['edu_note'])}</p>
 </body></html>"""
 
-WEB_CSS = """
-.cv{max-width:calc(860px + 2*var(--gutter));padding-block:clamp(28px,5vw,64px) 96px}
-.cv h1{font-size:clamp(38px,6vw,64px);margin-bottom:10px}
-.cv .role{font:500 14px/1.4 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
-.cv .contact{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:0 0 22px;padding:0;color:var(--ink-2)}
-.cv h2{font-size:22px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--ink);letter-spacing:-.02em}
-.cv .proj{margin:0 0 26px}
-.cv .proj h3{font-size:24px;letter-spacing:-.025em;margin-bottom:4px}
-.cv .proj .meta{font:500 13px/1.5 var(--f-mono);color:var(--muted);margin:0 0 8px}
-.cv ul.b{margin:0;padding-left:20px;color:var(--ink-2)}
-.cv ul.b li{margin:0 0 6px}
-.cv dl{display:grid;grid-template-columns:200px 1fr;gap:8px 20px;margin:0}
-.cv dt{font-weight:600}
-.cv dd{margin:0;color:var(--ink-2)}
-.cv table{width:100%;border-collapse:collapse}
-.cv td{padding:10px 0;border-top:1px solid var(--rule);vertical-align:top}
-.cv td:last-child{text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:13.5px;color:var(--muted)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cv .note{color:var(--muted);font-size:14.5px;margin-top:10px}
-@media (max-width:640px){.cv dl{grid-template-columns:1fr}.cv dd{margin-bottom:8px}}
-"""
+WEB_CSS = ""  # CV ekran stilleri assets/site.css içinde (bölüm 7)
 
 def web_html(c, base):
     w = c["web"]
@@ -207,6 +187,8 @@ def web_html(c, base):
         .replace("{{CANON}}", canon).replace("{{TR}}", tr_url).replace("{{EN}}", en_url).replace("{{LOCALE}}", "en_US" if en else "tr_TR") \
         .replace("{{CSS}}", WEB_CSS)
     header = base["header"].replace("{{HOME}}", w["home"]).replace("{{HOMELABEL}}", home_label).replace("{{THEME}}", theme_label) \
+        .replace("{{NAVLABEL}}", "Sections" if en else "Bölümler").replace("{{MENU}}", "Menu" if en else "Menü").replace("{{CLOSE}}", "Close" if en else "Kapat") \
+        .replace("{{NAV}}", site_nav(en)) \
         .replace("{{ALT}}", w["alt"]).replace("{{ALTLANG}}", w["alt_lang"]).replace("{{ALTLABEL}}", w["alt_label"]).replace("{{ALTNAME}}", "English" if c["lang"] == "tr" else "Türkçe")
     return f"""{head}
 <body>
@@ -214,20 +196,26 @@ def web_html(c, base):
 {header}
 <main id="main"><article class="cv wrap">
 <p class="crumbs"><a href="{w['home']}">{w['back']}</a><span aria-hidden="true">/</span><span>CV</span></p>
-<h1>Yiğit Eren Büyükeren</h1><p class="role">{E(c['role'])}</p>
+<h1>Yiğit Eren Büyükeren</h1><p class="role"{'' if en else ' lang="en"'}>{E(c['role'])}</p>
 <ul class="contact">{contact}</ul>
-<div class="actions"><a class="btn primary" href="{pdf}" download>{w['download']} <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="{other_pdf_href(c)}" download>{w['other_pdf']} <span class="arr" aria-hidden="true">↓</span></a></div>
+<div class="actions"><a class="btn btn-primary" href="{pdf}" download>{w['download']} <span class="arr" aria-hidden="true">↓</span></a><a class="btn" href="{other_pdf_href(c)}" download>{w['other_pdf']} <span class="arr" aria-hidden="true">↓</span></a></div>
 <h2>{E(tr_upper(c['h']['summary']) if c['lang']=='tr' else c['h']['summary'].upper())}</h2><p>{E(c['summary'])}</p>
 <h2>{E(c['h']['projects'])}</h2>{projs}
 <h2>{E(c['h']['oss'])}</h2><p>{E(c['oss'])}</p>
 <h2>{E(c['h']['skills'])}</h2><dl>{sk}</dl>
-<h2>{E(c['h']['edu'])}</h2><table><thead><tr><th scope="col" class="vh">{"Education or certificate" if en else "Eğitim veya sertifika"}</th><th scope="col" class="vh">{"Issuer" if en else "Veren"}</th><th scope="col" class="vh">{"Date" if en else "Tarih"}</th></tr></thead>{ed}</table><p class="note">{E(c['edu_note'])}</p>
+<h2>{E(c['h']['edu'])}</h2><div class="table-scroll" tabindex="0" role="region" aria-label="{'Education and certificates table' if en else 'Eğitim ve sertifikalar tablosu'}"><table><thead><tr><th scope="col" class="vh">{"Education or certificate" if en else "Eğitim veya sertifika"}</th><th scope="col" class="vh">{"Issuer" if en else "Veren"}</th><th scope="col" class="vh">{"Date" if en else "Tarih"}</th></tr></thead>{ed}</table></div><p class="note">{E(c['edu_note'])}</p>
 </article></main>
-<footer class="site-foot"><div class="wrap"><span>© <span id="y">2026</span> Yiğit Eren Büyükeren</span><nav aria-label="{'Footer links' if en else 'Alt bağlantılar'}"><a href="{w['home']}">{w['back']}</a><a href="https://github.com/yigitbuyukeren">GitHub</a></nav></div></footer>
-<script src="/assets/site.js" defer></script>
+<footer class="site-foot"><div class="wrap"><span>© <span id="y">2026</span> Yiğit Eren Büyükeren · {'Hand-written HTML and CSS, served from my own server with Caddy. No trackers or ads.' if en else "Framework'süz HTML ve CSS, kendi sunucumda Caddy ile yayında. İzleyici ve reklam yok."}</span><nav aria-label="{'Footer links' if en else 'Alt bağlantılar'}"><a href="https://github.com/yigitbuyukeren">GitHub</a><a href="{w['pdfpath']}">CV</a>{'<a href="/" hreflang="tr" lang="tr">Türkçe</a><a href="/aile-cuzdani/gizlilik/">Aile Cüzdanı privacy (TR)</a>' if en else '<a href="/en/" hreflang="en" lang="en">English</a><a href="/aile-cuzdani/gizlilik/">Aile Cüzdanı gizlilik</a>'}</nav></div></footer>
+<script src="/assets/site.js?v=20261110" defer></script>
 </body>
 </html>
 """
+
+def site_nav(en):
+    links = [("/en/#projects", "Projects"), ("/en/#about", "About"), ("/en/#contact", "Contact"), ("/en/cv/", "CV")] if en else \
+            [("/#projeler", "Projeler"), ("/#hakkimda", "Hakkımda"), ("/#iletisim", "İletişim"), ("/cv/", "CV")]
+    cur = "/en/cv/" if en else "/cv/"
+    return "".join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == cur else "", t) for h, t in links)
 
 def other_pdf_href(c):
     return ("/en/cv/" + CV["en"]["pdf"]) if c["lang"] == "tr" else ("/cv/" + CV["tr"]["pdf"])
@@ -237,20 +225,22 @@ def main():
     src = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
     moon = src[src.index('<button class="icon-btn" id="theme"'):src.index('</button>', src.index('<button class="icon-btn" id="theme"')) + 9]
     header = ('<header class="site-head"><div class="wrap">'
-              '<a class="mark" href="{{HOME}}"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-name-long">Eren </span>Büyükeren</span></a>'
-              '<div class="head-tools" style="margin-left:auto">' + moon.replace('aria-label="Açık ya da koyu tema"', 'aria-label="{{THEME}}"') +
-              '<a class="icon-btn" href="{{ALT}}" hreflang="{{ALTLANG}}" lang="{{ALTLANG}}" aria-label="{{ALTLABEL}}, {{ALTNAME}}">{{ALTLABEL}}</a></div></div></header>')
+              '<a class="mark" href="{{HOME}}"><span class="mark-badge" aria-hidden="true">yb<i>.</i></span><span>Yiğit <span class="mark-long">Eren </span>Büyükeren</span></a>'
+              '<nav class="site-nav" aria-label="{{NAVLABEL}}">{{NAV}}</nav>'
+              '<div class="head-tools"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="lbl-open vh">{{MENU}}</span><span class="lbl-close vh">{{CLOSE}}</span><span class="menu-ico" aria-hidden="true"></span></button>' + moon.replace('aria-label="Açık ya da koyu tema"', 'aria-label="{{THEME}}"') +
+              '<a class="icon-btn" href="{{ALT}}" hreflang="{{ALTLANG}}" lang="{{ALTLANG}}" aria-label="{{ALTLABEL}}, {{ALTNAME}}">{{ALTLABEL}}</a></div></div></header>\n'
+              '<div class="menu" id="menu" hidden><nav aria-label="{{NAVLABEL}}">{{NAV}}</nav></div>')
     head = ('<!doctype html>\n<html lang="{{LANG}}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n'
             '<title>{{TITLE}}</title>\n<meta name="description" content="{{DESC}}">\n<meta name="author" content="Yiğit Eren Büyükeren">\n'
             '<link rel="canonical" href="{{CANON}}">\n<link rel="alternate" hreflang="tr" href="{{TR}}">\n<link rel="alternate" hreflang="en" href="{{EN}}">\n<link rel="alternate" hreflang="x-default" href="{{TR}}">\n'
             '<meta property="og:type" content="profile">\n<meta property="og:site_name" content="Yiğit Eren Büyükeren">\n<meta property="og:title" content="{{TITLE}}">\n<meta property="og:description" content="{{DESC}}">\n'
             '<meta property="og:url" content="{{CANON}}">\n<meta property="og:image" content="https://yigitbuyukeren.com/assets/img/og-home.png">\n<meta property="og:locale" content="{{LOCALE}}">\n'
             '<meta name="twitter:card" content="summary_large_image">\n'
-            '<meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">\n<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">\n'
+            '<meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">\n<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">\n'
             '<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="/assets/img/favicon-yb.png" type="image/png">\n<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">\n'
-            '<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>\n'
+            '<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>\n'
             "<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>\n"
-            '<link rel="stylesheet" href="/assets/site.css">\n<style>{{CSS}}</style>\n</head>')
+            '<link rel="stylesheet" href="/assets/site.css?v=20261109m">\n</head>')
     base = {"head": head, "header": header}
     do_pdf = "--no-pdf" not in sys.argv
     for key, c in CV.items():

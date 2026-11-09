@@ -20,9 +20,9 @@
 
 Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, tek bir CSS ve tek bir JavaScript dosyası. Fontlar da sitenin içinde, ziyaretçinin tarayıcısı Google'a ya da başka bir CDN'e istek atmaz.
 
-| ⚡ **Hafif** | 🌗 **Açık ve koyu tema** | 🔴 **Canlı "Şu an" paneli** | 🔒 **İzleyici yok** |
+| ⚡ **Hafif** | 🌗 **Açık ve koyu tema** | 🟠 **Kil arayüzü** | 🔒 **İzleyici yok** |
 |:---:|:---:|:---:|:---:|
-| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | İstanbul saati, son gönderilen açık depo GitHub'dan | Fontlar sitede, izleme ve reklam yok (yalnızca "Şu an" kutusu GitHub API'sini çağırır) |
+| Tek CSS, tek JS, framework yok | Sistem temasına uyar, elle de değişir | Açık sıcak zemin, terracotta vurgu, tek yazı tipi Geist | Fontlar sitede, izleme, reklam ve dış istek yok |
 
 ### 🗺️ Sayfalar
 
@@ -44,8 +44,8 @@ veil/, en/veil/                Veil proje ve geliştirme durumu
 aile-cuzdani/                  proje sayfası ve yasal metinler
 dogum-gunu/                    canlı demo
 assets/site.css                bütün sayfaların tek stil dosyası (renkler, açık/koyu tema)
-assets/site.js                 tema düğmesi, İstanbul saati, GitHub'dan canlı bilgiler
-assets/fonts/                  Bricolage Grotesque, Geist, Geist Mono (latin + Türkçe karakterler)
+assets/site.js                 tema düğmesi, mobil menü, bölüm işareti ve belirme
+assets/fonts/                  Geist (latin + Türkçe karakterler)
 assets/img/                    ekran görüntüleri, paylaşım görselleri, ikonlar
 404.html, sitemap.xml          hata sayfası ve hreflang'li site haritası
 deploy.sh                      sunucuya gönderme
@@ -75,7 +75,7 @@ Asıl adres **yigitbuyukeren.com**, kendi sunucumda Caddy ve otomatik HTTPS ile 
 <details>
 <summary><h3>🇬🇧 English</h3></summary>
 
-Source of my personal site, [yigitbuyukeren.com](https://yigitbuyukeren.com). **No build step, no framework:** plain HTML, one stylesheet and one script. Fonts are served from the site itself, so visitors' browsers make no requests to Google or any other CDN. Light and dark themes follow the system and can be switched by hand; a live "right now" panel shows the Istanbul time and the last pushed public repository from the GitHub API.
+Source of my personal site, [yigitbuyukeren.com](https://yigitbuyukeren.com). **No build step, no framework:** plain HTML, one stylesheet and one script. Fonts are served from the site itself, so visitors' browsers make no requests to Google or any other CDN. Light and dark themes follow the system and can be switched by hand; the warm, minimal interface uses a single terracotta accent and the Geist typeface.
 
 Pages: home (Turkish and English), RideDeck (Turkish and English), Aile Cüzdanı with its privacy, terms and account-deletion pages, Veil with its alpha status and verification limits, CV pages with downloadable PDFs, and the live demo of the Birthday Surprise. Run it locally with `python3 -m http.server`; `deploy.sh` rsyncs it to a VPS where Caddy serves the primary domain over HTTPS. A separate GitHub Pages copy at yigitbuyukeren.github.io publishes automatically from main; pushing to GitHub does not update the VPS.
 
