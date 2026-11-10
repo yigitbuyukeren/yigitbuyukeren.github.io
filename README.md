@@ -28,7 +28,7 @@ Kişisel sitemin kaynak kodu. **Build adımı yok, framework yok:** düz HTML, t
 
 | Sayfa | |
 |---|---|
-| [`/`](https://yigitbuyukeren.com) · [`/en/`](https://yigitbuyukeren.com/en/) | Ana sayfa: hero, öne çıkan projeler, teknik çalışmalar, diğer projeler, yaklaşım, teknolojiler, hakkımda, sertifikalar ve açık kaynak, iletişim |
+| [`/`](https://yigitbuyukeren.com) · [`/en/`](https://yigitbuyukeren.com/en/) | Ana sayfa: hero, hizmetler, öne çıkan projeler, teknik çalışmalar, diğer projeler, süreç, hakkımda, yaklaşım, teknolojiler, sertifikalar ve açık kaynak, SSS, iletişim formu |
 | [`/cv/`](https://yigitbuyukeren.com/cv/) · [`/en/cv/`](https://yigitbuyukeren.com/en/cv/) | Özgeçmiş sayfası ve tek sayfalık PDF'ler (`Yigit-Eren-Buyukeren-CV-TR.pdf`, `-EN.pdf`) |
 | [`/ridedeck/`](https://yigitbuyukeren.com/ridedeck/) · [`/en/ridedeck/`](https://yigitbuyukeren.com/en/ridedeck/) | RideDeck proje sayfası |
 | [`/aile-cuzdani/`](https://yigitbuyukeren.com/aile-cuzdani/) · [`/en/aile-cuzdani/`](https://yigitbuyukeren.com/en/aile-cuzdani/) | Aile Cüzdanı proje sayfası, [gizlilik](https://yigitbuyukeren.com/aile-cuzdani/gizlilik/), [şartlar](https://yigitbuyukeren.com/aile-cuzdani/sartlar/) ve [hesap silme](https://yigitbuyukeren.com/aile-cuzdani/hesap-silme/) |

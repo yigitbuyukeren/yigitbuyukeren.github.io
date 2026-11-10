@@ -33,7 +33,7 @@
     var setOpen = function (open, restore) {
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       menu.hidden = !open;
-      root.classList.toggle('menu-open', open);
+      d.body.classList.toggle('menu-open', open);
       inertEls.forEach(function (el) {
         if (open) el.setAttribute('inert', '');
         else el.removeAttribute('inert');
@@ -103,6 +103,29 @@
     var hero = d.querySelector('.hero');
     if (hero) spy.observe(hero);
   }
+
+  /* Brief formu: veriyi hiçbir yere göndermeden mailto taslağı üretir.
+     JS yoksa formun action="mailto:" özniteliği devreye girer. */
+  var brief = d.getElementById('brief');
+  if (brief) brief.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var val = function (id) { var el = d.getElementById(id); return el ? el.value.trim() : ''; };
+    var name = val('b-name'), mail = val('b-mail'), type = val('b-type'), when = val('b-time'), msg = val('b-msg');
+    var L = EN
+      ? { name: 'Name: ', mail: 'Email: ', type: 'Scope: ', when: 'Timing: ', proj: 'Project:', subj: 'Project: ' }
+      : { name: 'Ad: ', mail: 'E-posta: ', type: 'Kapsam: ', when: 'Zamanlama: ', proj: 'Proje:', subj: 'Proje: ' };
+    var subject = L.subj + type + (name ? ' — ' + name : '');
+    var body = [
+      L.name + name,
+      L.mail + mail,
+      L.type + type,
+      L.when + when,
+      '',
+      L.proj,
+      msg
+    ].join('\n');
+    location.href = 'mailto:mail@yigitbuyukeren.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
 
   /* Alt bilgideki yıl. */
   var y = d.getElementById('y');
