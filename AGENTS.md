@@ -2,4 +2,4 @@
 - Build/framework yok: düz HTML/CSS/JS. Harici font, CDN veya analitik ekleme; gizlilik ve tema davranışını koru.
 - Sayfa eklerken TR/EN eşini, `sitemap.xml`, `hreflang`, canonical ve 404 bağlantılarını güncelle.
 - Kontrol: `python3 tools/check-site.py`; değişiklikte yerel bağlantı, meta ve mobil görünüm.
-- `main` push'u yalnız kaynak repoyu günceller; GitHub Pages içerik aynası kapalıdır ve `github.io` yalnız asıl alan adına yönlendirir. Canlı site VPS'tedir, `DEPLOY_HOST` ile ayrı dağıtım ister.
+- `main` push'u yalnız kaynak repoyu günceller; GitHub Pages aynası kapalıdır ve `github.io` yayında değildir (404). Canlı site VPS'tedir, `DEPLOY_HOST` ile ayrı dağıtım ister.
