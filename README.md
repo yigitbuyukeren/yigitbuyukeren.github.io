@@ -43,9 +43,11 @@ ridedeck/, en/ridedeck/        RideDeck proje sayfaları
 veil/, en/veil/                Veil proje ve geliştirme durumu
 aile-cuzdani/                  proje sayfası ve yasal metinler
 dogum-gunu/                    canlı demo
-assets/site.css                bütün sayfaların tek stil dosyası (renkler, açık/koyu tema)
-assets/site.js                 tema düğmesi, mobil menü, bölüm işareti ve belirme
-assets/fonts/                  Geist (latin + Türkçe karakterler)
+assets/home.css                ana sayfa tasarımı ("Kil": renkler, tipografi, bileşenler)
+assets/home.js                 ana sayfa hero arkasındaki canlı leke animasyonu
+assets/site.css                diğer sayfaların stil dosyası (renkler, açık/koyu tema)
+assets/site.js                 tema düğmesi, mobil menü, bölüm işareti, belirme ve form
+assets/fonts/                  Geist + Fraunces (latin + Türkçe karakterler)
 assets/img/                    ekran görüntüleri, paylaşım görselleri, ikonlar
 404.html, sitemap.xml          hata sayfası ve hreflang'li site haritası
 deploy.sh                      sunucuya gönderme
