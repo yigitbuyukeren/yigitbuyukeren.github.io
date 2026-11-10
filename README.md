@@ -70,13 +70,13 @@ bash deploy.sh                   # rsync ile VPS'e gönderir; Caddy /var/www alt
 - `python3 tools/check-site.py` bağlantıları, sayfa metalarını ve site haritasını denetler.
 - Profil kartları, ayrı profil deposundaki `tools/render.sh` ile bu sitenin kartlarından üretilir.
 
-Asıl adres **yigitbuyukeren.com**, kendi sunucumda Caddy ve otomatik HTTPS ile sunulur; VPS yayını `deploy.sh` ile ayrıca yapılır. **yigitbuyukeren.github.io** üzerinde de `main` dalından otomatik yayınlanan bir GitHub Pages kopyası etkindir. Canonical bağlantılar asıl alan adını gösterir. `deploy.sh` `.git`, `.github` ve README gibi yayına girmeyecek dosyaları atlar.
+Asıl adres **yigitbuyukeren.com**, kendi sunucumda Caddy ve otomatik HTTPS ile sunulur; VPS yayını `deploy.sh` ile ayrıca yapılır. GitHub Pages aynası kapatıldı; `yigitbuyukeren.github.io` artık yalnız asıl alan adına yönlendirir. Canonical bağlantılar asıl alan adını gösterir. `deploy.sh` `.git`, `.github` ve README gibi yayına girmeyecek dosyaları atlar.
 
 <details>
 <summary><h3>🇬🇧 English</h3></summary>
 
 Source of my personal site, [yigitbuyukeren.com](https://yigitbuyukeren.com). **No build step, no framework:** plain HTML, one stylesheet and one script. Fonts are served from the site itself, so visitors' browsers make no requests to Google or any other CDN. Light and dark themes follow the system and can be switched by hand; the warm, minimal interface uses a single terracotta accent and the Geist typeface.
 
-Pages: home (Turkish and English), RideDeck (Turkish and English), Aile Cüzdanı with its privacy, terms and account-deletion pages, Veil with its alpha status and verification limits, CV pages with downloadable PDFs, and the live demo of the Birthday Surprise. Run it locally with `python3 -m http.server`; `deploy.sh` rsyncs it to a VPS where Caddy serves the primary domain over HTTPS. A separate GitHub Pages copy at yigitbuyukeren.github.io publishes automatically from main; pushing to GitHub does not update the VPS.
+Pages: home (Turkish and English), RideDeck (Turkish and English), Aile Cüzdanı with its privacy, terms and account-deletion pages, Veil with its alpha status and verification limits, CV pages with downloadable PDFs, and the live demo of the Birthday Surprise. Run it locally with `python3 -m http.server`; `deploy.sh` rsyncs it to a VPS where Caddy serves the primary domain over HTTPS. The GitHub Pages mirror is disabled; yigitbuyukeren.github.io only redirects to the primary domain, and pushing to GitHub does not update the VPS.
 
 </details>
